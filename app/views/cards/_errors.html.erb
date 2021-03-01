@@ -1,0 +1,9 @@
+<% if @card.errors.any? %>
+<div id="error_explanation">
+    <ul>
+    <% @card.errors.full_messages.each do |msg| %>
+      <li><%= flash.notice = "#{msg}" %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>

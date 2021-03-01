@@ -1,0 +1,11 @@
+  
+<% if @aisle.errors.any? %>
+<div id="error-messages">
+    <ul>
+    <% @aisle.errors.full_messages.each do |msg| %>
+      <li><%= flash.notice = "#{msg}" %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  

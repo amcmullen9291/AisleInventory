@@ -1,0 +1,9 @@
+<% if @manufacturer.errors.any? %>
+<div id="error_explanation">
+    <ul>
+    <% @manufacturer.errors.full_messages.each do |msg| %>
+      <li><%= flash.notice = "#{msg}" %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>

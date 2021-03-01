@@ -1,0 +1,2 @@
+class Manufacturere < ApplicationRecord
+end

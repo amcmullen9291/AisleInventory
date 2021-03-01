@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AisleInventory</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class='calculator'>
+    <div class='display backlight'>
+    <br>
+    <center><% flash.each do |type, msg| %>
+      <div class="error-messages">
+        <%= msg %>
+      </div>
+    <% end %>
+</center>  
+     </div>
+      <%= yield %>
+
+      <section class="app">
+  <aside class="sidebar">
+       <header>
+       <br>
+    </header>
+  <nav class="sidebar-nav">
+<br>
+<br>
+<br>
+    <ul>
+      <li>
+        <a href="#"><i class="ion-bag"></i> <span></span></a>
+        <ul class="nav-flyout">
+          <li class="nav-add"><b><u>Adjustments</u></b>
+          </li>
+          <li>
+            <%=link_to "By Occasion", occasions_path %>
+          </li>
+          <li>
+            <%= link_to "By Manufacturer", manufacturers_path %>
+          </li>
+          <li>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <ul class="nav-flyout">
+          <li>
+        </ul>
+      </li>
+      <li class="nav-add"><b><u>Locator</u></b>
+      </li>
+      <li>
+        <a href="#"><i class="ion-ios-medical-outline"></i> <span class="">By Ocassion</span></a>
+      </li>
+    <li>
+    <a href="#"><i class="ion-ios-medical-outline"></i> <span class="">Accessories</span></a>
+  </li>
+  <li>
+  <a href="#"><i class="ion-ios-medical-outline"></i> <span class="">By SKU</span></a>
+</li>
+
+    </ul>
+    <ul class="nav-flyout">
+          <li>
+        </ul>
+      </li>
+      <li class="nav-add"><b><u>Aisle Access</u></b>
+      </li>
+      <li>
+        <small><%=link_to "Login", login_path %></small>
+      </li>
+      <li></li>
+      <li class="nav-standout"><b><u>ADD</u></b>
+      <li>
+        <small><%=link_to "User", new_user_path%></small>
+      </li>
+      <li>
+      <small><%=link_to "Manufacturer", new_manufacturer_path%></small>
+    </li>
+    <li>
+    <small><%=link_to "Add Aisle", new_aisle_path%></small>
+  </li>
+  <li>
+    <small><%=link_to "Occasion", new_occasion_path%></small>
+  </li>
+  <li>
+  <small><%=link_to "Card SKU", new_card_path%></small>
+</li>
+    <li></li>
+      <li>
+      <li class="nav-add"><b><u><%=link_to "Exit Aisle", logout_path %></u></b></li>
+    <li>
+    <a href="#"><i class="ion-ios-medical-outline"></i> <span class=""></span></a>
+  </li>
+
+    </ul>
+  </nav>
+</aside>
+
+      </section>
+  </div>
+</body>
+</html>

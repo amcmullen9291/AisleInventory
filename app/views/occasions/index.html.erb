@@ -1,0 +1,13 @@
+<div class= "whiteboard">
+<ul class= "occasion-list">
+<center><% @occasion.each do |occasion| %>
+    <ol><%= link_to "Remove #{occasion.name_of}", occasion_path(occasion),
+    method: :delete,
+    data: { confirm: "All SKUs will be orphaned" } %></li><br>
+    <li><%= link_to "Relist #{occasion.name}", edit_occasion_path(occasion) %></li>
+    </ol>
+    <%end%>
+</ul>
+<%= link_to "back", root_path %>
+</center>
+</div>

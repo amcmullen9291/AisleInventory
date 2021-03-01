@@ -28,6 +28,8 @@ gem 'omniauth', '~> 2.0', '>= 2.0.3'
 gem 'omniauth-google-oauth2', '~> 0.8.1'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'active_model_otp', '~> 2.1'
+gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'rqrcode', '~> 1.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

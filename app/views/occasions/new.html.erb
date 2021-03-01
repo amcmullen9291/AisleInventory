@@ -1,0 +1,16 @@
+<% render 'errors' %>
+<div class= "whiteboard">
+<center><h2>Occasions</h2></center>
+    <center><%= form_with model: @occasion do |f| %>
+    <ol>
+        <li><small>Check Spelling</small></li>
+        <li><small>Start Name With Cap. Letters</small></li>
+    </ol>
+    <%= f.label :"Name Of Occasion" %>
+    <%= f.text_field :name_of %><br>
+    <%= f.submit "Add Occasion"%>
+ <%end%>
+ </center>
+ <%= link_to "Current Listed Occasions", occasions_path %>
+
+</div>

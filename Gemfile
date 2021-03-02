@@ -25,7 +25,7 @@ gem 'bcrypt', '~> 3.1.7'
 #added gems
 gem 'faker', '~> 2.16'
 gem 'active_model_otp', '~> 2.1'
-# gem 'omniauth-tumblr'
+gem 'omniauth-github', github: 'omniauth/omniauth-github', branch: 'master'
 gem 'omniauth', '~> 2.0', '>= 2.0.3'
 
 # Use Active Storage variant

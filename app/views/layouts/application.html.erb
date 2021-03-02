@@ -71,8 +71,17 @@
       </li>
       <li class="nav-add"><b><u>Aisle Access</u></b>
       </li>
+      <% if session[:user_id] %>
+      <small> <h4> Logged in  as: <%= @user.name %></h4><br>
+       <h5><%= @user.uid %></h5></small>
+       <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
+     <% else %>
+       <small><%= link_to('Login', '/auth/github') %></small>
+     <% end %>
+     
+
       <li>
-        <small><%=link_to "Login", login_path %></small>
+        # <small><%=link_to "Login", login_path %></small>
       </li>
       <li></li>
       <li class="nav-standout"><b><u>ADD</u></b>
@@ -93,15 +102,12 @@
 </li>
     <li></li>
       <li>
-      <li class="nav-add"><b><u><%=link_to "Exit Aisle", logout_path %></u></b></li>
     <li>
     <a href="#"><i class="ion-ios-medical-outline"></i> <span class=""></span></a>
   </li>
-
     </ul>
   </nav>
 </aside>
-
       </section>
   </div>
 </body>

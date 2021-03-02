@@ -1,5 +1,5 @@
-class AislesController < 
-    before_action :set_aisle, only: [ :show, :edit, :destroy, :update ]
+class AislesController < ApplicationController
+     before_action :set_aisle, only: [ :show, :edit, :destroy, :update ]
 
     def new 
         @aisle = Aisle.new

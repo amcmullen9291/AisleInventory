@@ -1,10 +1,10 @@
 <div class= "whiteboard">
 <ul class= "occasion-list">
-<center><% @manufacturer.each do |manufacturer| %>
-    <ol><%= link_to "Remove #{manufacturer.name}", manufacturer_path(manufacturer),
+<center><% @manufacturere.each do |manufacturere| %>
+    <ol><%= link_to "Remove #{manufacturere.name}", manufacturere_path(manufacturere),
     method: :delete,
-    data: { confirm: "Permanently Delete #{manufacturer.name}?" } %></li><br>
-    <li><%= link_to "Edit Title of  #{manufacturer.name}", edit_manufacturer_path(manufacturer) %></li>
+    data: { confirm: "Permanently Delete #{manufacturere.name}?" } %></li><br>
+    <li><%= link_to "Edit Title of  #{manufacturere.name}", edit_manufacturere_path(manufacturer) %></li>
     </ol> <br>
     <br>
     <%end%>

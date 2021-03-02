@@ -2,12 +2,12 @@ class ManufactureresController < ApplicationController
     before_action :set_manufacturer, only: [ :show, :edit, :destroy, :update ]
 
     def new 
-        @manufacturer = Manufacturer.new
+        @manufacturere = Manufacturere.new
     end  
 
     def create 
-        @manufacturer = Manufacturer.new(manufacturer_params)
-        if @manufacturer.save 
+        @manufacturere = Manufacturere.new(manufacturer_params)
+        if @manufacturere.save 
             redirect_to cards_path, notice: "Manufacturer Added" 
         else 
             render :new
@@ -15,22 +15,22 @@ class ManufactureresController < ApplicationController
     end 
 
     def index 
-        @manufacturer = Manufacturer.all
+        @manufacturere = Manufacturere.all
     end 
 
     def edit
     end 
 
     def destory 
-        @manufacturer.destroy
+        @manufactureree.destroy
     end 
 
     def show
     end 
 
     def update 
-        if @manufacturer.update(manufacturer_params)
-            redirect_to cards_path, notice: "Item #{@manufacturer.name} Updated"
+        if @manufacturere.update(manufacturer_params)
+            redirect_to cards_path, notice: "Item #{@set_manufacturere.name} Updated"
         else
             render :edit, notice: "record not updated"
         end
@@ -40,12 +40,12 @@ class ManufactureresController < ApplicationController
 
     private 
 
-    def manufacturer_params 
-        params.require(:manufacturer).permit(:name)
+    def manufacturere_params 
+        params.require(:manufacturere).permit(:name)
     end 
 
-    def set_manufacturer 
-        @manufacturer = Manufacturer.find(params[:id])
+    def set_manufacturere 
+        @manufacturere = Manufacturere.find(params[:id])
     end
 
 end

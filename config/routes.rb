@@ -6,11 +6,10 @@ Rails.application.routes.draw do
   resources :manufactureres
   resources :users
 
-  get '/login', to: 'sessions#new'
-  post '/login', to: 'sessions#create'
-  delete 'logout', to: 'sessions#destroy'
+  get '/login', to: 'users#new'
+  delete '/logout', to: 'sessions#destroy'
   get '/auth/:provider/callback', to: 'sessions#create'
-  get '/auth/github' 
+  get '/auth/github', as: 'request_access'
 
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

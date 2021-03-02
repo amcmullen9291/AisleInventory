@@ -84,6 +84,9 @@ ActiveRecord::Schema.define(version: 2021_03_01_224149) do
     t.string "notes"
     t.string "email"
     t.string "telephone"
+    t.string "uid"
+    t.string "uname"
+    t.string "uemail"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"

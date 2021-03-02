@@ -6,7 +6,7 @@ class ManufactureresController < ApplicationController
     end  
 
     def create 
-        @manufacturere = Manufacturere.new(manufacturer_params)
+        @manufacturere = Manufacturere.new(manufacturere_params)
         if @manufacturere.save 
             redirect_to cards_path, notice: "Manufacturer Added" 
         else 
@@ -29,8 +29,8 @@ class ManufactureresController < ApplicationController
     end 
 
     def update 
-        if @manufacturere.update(manufacturer_params)
-            redirect_to cards_path, notice: "Item #{@set_manufacturere.name} Updated"
+        if @manufacturere.update(manufacturere_params)
+            redirect_to cards_path, notice: "#{manufacturere.name} Updated"
         else
             render :edit, notice: "record not updated"
         end

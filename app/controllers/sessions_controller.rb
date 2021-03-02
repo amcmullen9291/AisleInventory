@@ -1,9 +1,6 @@
 class SessionsController < ApplicationController
 
-    def new 
-    end 
-
-    def create
+  def create
 
       if request.env['omniauth.auth']
         env.['omniauth.auth'].inspect
@@ -32,6 +29,11 @@ class SessionsController < ApplicationController
       end
     end
     
+    def destroy
+      session[:user_id] = nil
+      redirect_to root_url, :notice => "Signed out!"
+    end
+
       private
      
       def auth

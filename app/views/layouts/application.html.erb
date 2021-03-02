@@ -76,7 +76,7 @@
        <h5><%= @user.uid %></h5></small>
        <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
      <% else %>
-       <%= link_to 'request_access', '/auth/github' %><br>
+       <%= link_to 'request_access', "/auth/github"%><br>
        <li></li>
        <small><%=link_to "login", login_path %></small>
      <% end %>

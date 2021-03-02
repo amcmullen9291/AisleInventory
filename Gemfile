@@ -28,7 +28,6 @@ gem 'active_model_otp', '~> 2.1'
 gem 'dotenv-rails'
 gem 'omniauth-github', '~> 2.0'
 gem 'omniauth', '~> 2.0', '>= 2.0.3'
-gem 'figaro'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

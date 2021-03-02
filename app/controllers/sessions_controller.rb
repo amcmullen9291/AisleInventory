@@ -4,6 +4,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_or_create_from_auth_hash(auth_hash)
     self.current_user = @user
+    @session = session
+    @session[:user_id] = @user.name
     redirect_to roots_path, notice: "Welcome Back"
   end
     

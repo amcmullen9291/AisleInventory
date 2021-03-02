@@ -72,8 +72,7 @@
       <li class="nav-add"><b><u>Aisle Access</u></b>
       </li>
       <% if session[:user_id] %>
-      <small> <h4> Logged in  as: <%= @user.name %></h4><br>
-       <h5><%= @user.uid %></h5></small>
+      <small> <h4> Logged in  as: <%= @session[:user_id] %></h4><br>
        <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
      <% else %>
        <%= button_to 'request_access', "/auth/github", method: :post %><br>

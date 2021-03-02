@@ -1,12 +1,10 @@
 class AuthController < ApplicationController
-    def github 
-        redirect_to 'sessions#create'
+  
+    def new 
     end 
 
     def create 
-        redirect_to 'sessions#create'
     end 
-
 
     private
      

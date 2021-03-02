@@ -7,7 +7,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -42,7 +41,7 @@
             <%=link_to "By Occasion", occasions_path %>
           </li>
           <li>
-            <%= link_to "By Manufacturer", manufacturers_path %>
+            <%= link_to "By Manufacturer", manufactureres_path %>
           </li>
           <li>
           </li>
@@ -81,7 +80,7 @@
         <small><%=link_to "User", new_user_path%></small>
       </li>
       <li>
-      <small><%=link_to "Manufacturer", new_manufacturer_path%></small>
+      <small><%=link_to "Manufacturer", new_manufacturere_path%></small>
     </li>
     <li>
     <small><%=link_to "Add Aisle", new_aisle_path%></small>

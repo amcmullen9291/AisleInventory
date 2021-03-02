@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.1'
+ruby '3.0.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
@@ -24,12 +24,9 @@ gem 'bcrypt', '~> 3.1.7'
 
 #added gems
 gem 'faker', '~> 2.16'
-gem 'omniauth', '~> 2.0', '>= 2.0.3'
-gem 'omniauth-google-oauth2', '~> 0.8.1'
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'active_model_otp', '~> 2.1'
-gem 'devise', '~> 4.7', '>= 4.7.3'
-gem 'rqrcode', '~> 1.2'
+# gem 'omniauth-tumblr'
+gem 'omniauth', '~> 2.0', '>= 2.0.3'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

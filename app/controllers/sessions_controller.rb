@@ -6,6 +6,7 @@ class SessionsController < ApplicationController
     def create
 
       if request.env['omniauth.auth']
+        env.['omniauth.auth'].inspect
         uemail = request.env['omniauth.auth']['info']['email']
 
         if @user = User.find_by(:email => uemail)

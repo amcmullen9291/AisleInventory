@@ -10,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :telephone 
       t.string :uid 
       t.string :uname 
-      t.string :uemail     
+      t.string :uprovider     
       t.timestamps
     end
   end

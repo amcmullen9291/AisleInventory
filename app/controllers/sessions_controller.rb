@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :verify_authenticity_token, only: :create 
+
   def create
     auth = request.env["omniauth.auth"]
     @user = User.sign_in_from_omniauth(auth)

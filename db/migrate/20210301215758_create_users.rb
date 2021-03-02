@@ -5,12 +5,13 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :store_id
       t.string :password
       t.string :password_confirmation
+      t.string :password_digest
       t.string :notes 
       t.string :email
       t.string :telephone 
       t.string :uid 
-      t.string :uname 
-      t.string :uprovider     
+      t.string :name 
+      t.string :provider     
       t.timestamps
     end
   end

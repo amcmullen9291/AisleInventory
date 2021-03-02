@@ -8,9 +8,9 @@ class AislesController < ApplicationController
     def create 
         @aisle = Aisle.new(aisle_params) 
         if @aisle.save 
-            redirect_to root_path, notice: "Aisle added"
+            redirect_to root_path, notice: "Aisle #{@aisle.aisle_number} added"
         else 
-            render :new 
+            render :new, notice: "Aisle #{@aisle.aisle_number} was not added"
         end
     end 
 

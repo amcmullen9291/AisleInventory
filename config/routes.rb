@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   root to: 'users#welcome'
   resources :cards 
-  resources :occasions
-  resources :aisles
+  resources :occasions, except: [:show]
+  resources :aisles do
+    member {get :occasions}
+  end 
+
   resources :manufactureres
   resources :users do
-    member {post :notes}
     member {get :notes}
   end
 

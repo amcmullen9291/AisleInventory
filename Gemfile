@@ -29,7 +29,7 @@ gem 'omniauth-github', '~> 2.0'
 gem 'omniauth', '~> 2.0', '>= 2.0.3'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'pry'
-
+gem 'devise'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
-  skip_before_action :verify_authenticity_token
-
+  skip_before_filter :verify_authenticity_token, only: :create 
   def create
-    @user = User.find_or_create_from_auth_hash(auth_hash)
+    auth = request.env["omniauth.auth"]
+    @user = User.sign_in_from_omniauth(auth)
     self.current_user = @user
-    @session = session
-    @session[:user_id] = @user.name
+    session[:user_id] = @user.name
     redirect_to roots_path, notice: "Welcome Back"
   end
     
@@ -14,9 +13,4 @@ class SessionsController < ApplicationController
       redirect_to root_url, :notice => "Signed out!"
     end
 
-    protected
-
-    def auth_hash
-      request.env['omniauth.auth']
-    end
   end

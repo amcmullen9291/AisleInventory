@@ -18,10 +18,15 @@ class User < ApplicationRecord
   validates_uniqueness_of :employeeInit, :message => "already enrolled"
   validates :notes, length: { maximum: 150 } #not being persisted
 
-  def self.create_with_omniauth(auth)
+
+  def self.sign_in_from_omniauth(auth)
+    find_by(provider: auth['email'], uid: auth['uid'] || create_user_from_omniauth(auth))
+  end
+
+  def self.create_user_from_omniauth(auth)
     create! do |user|
-      user.provider = auth["provider"]
-      user.uid = auth["uid"]
+      user.provider = auth["info"]["provider"]
+      user.uid = auth["info"]["uid"]
       user.name = auth["info"]["name"]
     end
   end

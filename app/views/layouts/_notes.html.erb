@@ -1,0 +1,15 @@
+<dix class= "whiteboard">
+<div class= "paper">
+<section id= "instructions">
+<small><center> Notes </center></small>
+</section>
+<center>
+
+    <p class= "endnotes">
+    <%=form_with model: @user do |f|%>
+        <%= f.text_area :notes,size: "60x20"%>
+        <%f.submit "Thank You"%>
+        <%end%>
+        </p></center>
+</div>
+</div>

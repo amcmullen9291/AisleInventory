@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
   root to: 'users#welcome'
-  resources :cards
+  resources :cards 
   resources :occasions
   resources :aisles
   resources :manufactureres
-  resources :users
+  resources :users do
+    member {post :notes}
+    member {get :notes}
+  end
 
   get '/login', to: 'users#new'
   get "/auth/:provider/callback" => "sessions#create"

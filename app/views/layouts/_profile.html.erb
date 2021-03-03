@@ -1,5 +1,5 @@
 <div class= "details">
-<%= @card.description %><br>
+<small> description: </small><%= @card.description %><br>
 Primary Occasion: <%= @card.occasion.name_of %><br>
 Located in Aisle: <%= @card.aisle.aisle_number %><br>
 Total in Stock: <%= @card.in_stock %> <br>
@@ -9,10 +9,10 @@ Total in Stock: <%= @card.in_stock %> <br>
 <% if @card.avatar.attached?%>
 <image src="<%=(url_for(@card.avatar))%>"> 
 <% end%>
-<%= @card.updated_at %>
+<br>
 </div>
 <br>
-<%=link_to "Update inventory", root_path %> <br>
+<%=link_to "Update inventory", edit_card_path(@card) %> <br>
 <%=link_to "Back", occasions_path %>
 
 </div>

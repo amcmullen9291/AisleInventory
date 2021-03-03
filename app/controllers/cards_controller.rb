@@ -7,10 +7,9 @@ class CardsController < ApplicationController
 
     def create 
         @card = Card.new(card_params)
-        if @card.save
-            @sku = Faker::Barcode.ean_with_composite_symbology(13)
-            @card.sku = @sku
-            @card.save 
+        @sku = Faker::Barcode.ean_with_composite_symbology(13)
+        @card.sku = @sku
+        if @card.save             
             redirect_to cards_path, notice: "Item #{@sku} Added"
         else
             render :new, notice: "Item not added. Try again"
@@ -50,6 +49,5 @@ class CardsController < ApplicationController
     end 
 
     def update_notice
-        $status << "#{@card.sku} updated"
     end 
 end

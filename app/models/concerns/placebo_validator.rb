@@ -8,10 +8,9 @@ class PlaceboValidator < ActiveModel::Validator
             validates :email, inclusion: { in: "#{@placebo.email}" }
             validates :telephone, inclusion: { in: "#{@placebo.telephone}" }
             validates :password_confirmation, inclusion: { in: "#{@placebo.password_confirmation}" } 
-            unless record.valid? 'X'
+            unless record.valid?
                 record.errors.add :name, "Enter Store_ID and Access_ID"
             end
-    
         else
             validates_presence_of :store_id, :message => "not entered"
             validates :password, confirmation: true

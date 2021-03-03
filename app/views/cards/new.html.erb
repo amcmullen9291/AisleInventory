@@ -6,7 +6,7 @@
         <%=f.collection_select(:occasion_id, Occasion.all, :id, :name_of) %><br>
         <br>
         Manufacturer:
-        <%=f.collection_select(:manufacturer_id, Manufacturer.all, :id, :name, :include_blank => true) %><br>
+        <%=f.collection_select(:manufacturer_id, Manufacturere.all, :id, :name, :include_blank => true) %><br>
         <br>
         <%= f.label :in_stock %>
         <%= f.text_field :in_stock %><br>

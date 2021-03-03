@@ -28,6 +28,8 @@ class OccasionsController < ApplicationController
     end 
 
     def destroy
+        @occasion.destroy
+        redirect_to occasions_path, notice: "Occasions list updated"
     end 
 
     private 

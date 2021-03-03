@@ -2,9 +2,8 @@ Rails.application.routes.draw do
   root to: 'users#welcome'
   resources :cards 
   resources :occasions, except: [:show]
-  resources :aisles do
-    member {get :occasions}
-  end 
+  resources :aisles
+  resources :occasions
 
   resources :manufactureres
   resources :users do

@@ -4,7 +4,7 @@
     <ol><%= link_to "Remove #{manufacturere.name}", manufacturere_path(manufacturere),
     method: :delete,
     data: { confirm: "Permanently Delete #{manufacturere.name}?" } %></li><br>
-    <li><%= link_to "Edit Title of  #{manufacturere.name}", edit_manufacturere_path(manufacturer) %></li>
+    <li><%= link_to "Edit Title of  #{manufacturere.name}", edit_manufacturere_path(manufacturere) %></li>
     </ol> <br>
     <br>
     <%end%>

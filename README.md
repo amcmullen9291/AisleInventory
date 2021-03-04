@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Because this is app intended to be used to keep a record an Business's inventory , I opted to adapt the login process to stength my app's security. While multiple users are able to create User instances, the placebo validator will only allow employy initials to vary; a user will have to enter the password (labeled as access_id) and the store code to gain access to the app. Also, an email or text confirmation will be sent to User.first every time a person logs in. The form to persit notes from each interaction  which will be a step required to log out will require an employee's initials (employeeInIt) to distinguish interactions.

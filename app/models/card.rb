@@ -7,4 +7,6 @@ class Card < ApplicationRecord
     validates_presence_of :description
     validates :description, length: { maximum: 150 }
     has_one_attached :avatar
+
+    
 end

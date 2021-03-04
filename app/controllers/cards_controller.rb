@@ -37,6 +37,7 @@ class CardsController < ApplicationController
 
     def index 
         @cards = Card.all
+        @results = Card.search(parmas[:search])
     end 
 
     private 

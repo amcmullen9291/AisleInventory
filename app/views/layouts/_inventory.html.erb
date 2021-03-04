@@ -1,9 +1,17 @@
-    <table>
+        <h4> search by SKU</h4>
+        <%= form_with model: @card  do |form|%>
+        <%= form.text_field :search%>
+        <%= submit_tag "Search"%>
+        <%end%>        
+        <br>
+  <table>
     <thead>
+    <tr>
       <td colspan ="2">SKU <td>
       <td></td>
+      <td>Lastest Update</td>
       <td></td>
-      <td>last updated</td>
+      </tr>
     </thead>
     <tbody>
     <%@cards.all.each do |card| %>

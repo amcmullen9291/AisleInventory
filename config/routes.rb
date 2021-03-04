@@ -14,10 +14,11 @@ Rails.application.routes.draw do
   end
 
 
-  get '/login', to: 'users#new'
+  get '/login', to: 'users#sign_in'
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
   get '/auth/github'
+  get '/signup', to: 'users#new'
 
   get '/search', to: 'cards#index'
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]

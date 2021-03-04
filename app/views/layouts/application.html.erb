@@ -74,7 +74,8 @@
        <%= button_to 'request_access', "/auth/github", method: :post %><br>
        <li></li>
        <small><%=link_to "login", login_path %></small><br>
-     <% end %>
+       <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
+      <% end %>
      
 <%= link_to "Home", root_path %>
       <li>

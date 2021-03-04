@@ -7,8 +7,12 @@ Rails.application.routes.draw do
 
   resources :manufactureres
   resources :users do
-    member {get :notes}
+    member do
+      get :confirm_email
+    end  
+    resources :notes, only: [ :show ]
   end
+
 
   get '/login', to: 'users#new'
   get "/auth/:provider/callback" => "sessions#create"

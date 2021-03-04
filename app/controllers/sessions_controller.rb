@@ -10,6 +10,8 @@ class SessionsController < ApplicationController
   end
     
     def destroy
+      @user = User.find(params[:id])
+      @user.notes.destroy
       session[:user_id] = nil
       redirect_to root_url, :notice => "Signed out!"
     end

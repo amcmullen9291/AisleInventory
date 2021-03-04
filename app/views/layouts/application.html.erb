@@ -68,7 +68,8 @@
       <li class="nav-add"><b><u>Aisle Access</u></b>
       </li>
       <% if session[:user_id] %>
-      <small> <h4> Logged in  as: <%= @session[:user_id] %></h4><br>
+      <small> <h4> Logged in  as: <%= @session[:user_id] %></h4></small><br>
+      <%= link_to "End Session", user_note_path %>
         <% if @user.notes %>
           <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
         <%end%>
@@ -98,7 +99,7 @@
     <li></li>
       <li>
     <li>
-    <a href="#"><i class="ion-ios-medical-outline"></i> <span class=""></span></a>
+
   </li>
     </ul>
   </nav>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     member do
       get :confirm_email
     end  
-    resources :notes, only: [ :show ]
+    resources :notes, only: [ :new ]
   end
 
 

@@ -290,5 +290,14 @@
     border-bottom:  lightslategrey;
     border-width: thick;
 }
-  
+ 
+
+.initials {
+  /* background-size: auto; */
+  background-color: khaki;
+  opacity: 75%;
+  font-size: large;
+  width:fit-content;
+  height:fit-content;
+}
   © 2021 GitHub, Inc.

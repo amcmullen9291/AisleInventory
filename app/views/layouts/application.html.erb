@@ -72,7 +72,6 @@
        <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
      <% else %>
        <%= button_to 'request_access', "/auth/github", method: :post %><br>
-       <li></li>
        <small><%=link_to "login", login_path %></small><br>
        <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
       <% end %>

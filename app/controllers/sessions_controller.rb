@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
     @user = User.sign_in_from_omniauth(auth)
     self.current_user = @user
     session[:user_id] = @user.name
+    UserMailer.activity(@user).deliver!
     redirect_to roots_path, notice: "Welcome Back"
   end
     

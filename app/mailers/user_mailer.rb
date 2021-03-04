@@ -3,11 +3,15 @@ class UserMailer < ActionMailer::Base
 
     def registration_confirmation(user)
         @user = user
-        mail(:to => "#{user.name} <#{user.email}>", :subject => "Aisle Invertory Registration Confirmation")
+        mail(:to => "#{user.store_id} <#{user.email}>", :subject => "Aisle Invertory Registration Confirmation")
     end
 
     def activity_report
-        mail(:to => "BreededShelter@protonmail.com", :subject => "Status Report")
+        @user = user
+        mail(:to => "#{user.store_id} <#{user.email}>", :subject => "Status Report")
     end
 
+    def activity 
+        mail(:to => "#{user.store_id} <#{user.email}>", :subject => "Log-In")
+    end
 end

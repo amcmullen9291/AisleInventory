@@ -1,10 +1,11 @@
 <div class="log-form">
-  <h2>Login to your account</h2>
-  <form>
-    <input type="text" name="store_id" placeholder="Store ID" />
-    <input type="password" title="username" placeholder="Access ID" />
-    <button type="submit" class="btn">Login</button>
-  </form>
+<h2><center>Aisle Inventory</center></h2>
+  <%=form_with model: @user do |f| %>
+    <small><%= f.label :"Store ID"%></small>
+    <%= f.text_field :store_id%><br>
+    <small><%= f.label :"Access ID"%></small>
+    <%= f.password_field :password%>
+    <%= f.submit "Go!" %>
+    <%end%>
 </div>
 
-<!--end log form -->

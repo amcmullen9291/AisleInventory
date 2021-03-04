@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+    before_action :set_user, only: [ :show, :edit, :update, :destroy ]
     def welcome 
         flash.notice = "Aisle Inventory - 2021  ©"
    end 
@@ -8,7 +10,7 @@ class UsersController < ApplicationController
    end
 
    def create 
-    session = @session
+    @session = session
        @user = User.new(user_params)
        if @user.save
         UserMailer.registration_confirmation(@user).deliver!
@@ -18,11 +20,29 @@ class UsersController < ApplicationController
            render :new, notice: "Access Denied"
        end
    end 
+   
+   def show 
+   end 
+
+   def edit 
+   end 
+
+   def update
+        if @user.update(user_params)
+            redirect_to user_path(user)
+        else
+            render :edit
+        end 
+    end 
 
    def sign_in 
    end 
 
    private 
+
+   def set_user
+    @user = User.find(params[:id])
+   end
 
    def user_params 
        params.require(:user).permit(:password, password_confirmation, :store_id, :notes, :employeeInit, :password_digest, :telephone, :uid, :uname, :uemail)

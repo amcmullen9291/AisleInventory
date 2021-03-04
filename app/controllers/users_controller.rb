@@ -11,8 +11,8 @@ class UsersController < ApplicationController
     session = @session
        @user = User.new(user_params)
        if @user.save
-           UserMailer.aisle_inventory.deliver_now
-           @session[:user_id] = @user.employeeInit
+        UserMailer.registration_confirmation(@user).deliver!
+        @session[:user_id] = @user.employeeInit
            redirect_to root_path, notice: "Welcome"
        else
            render :new, notice: "Access Denied"

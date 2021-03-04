@@ -1,12 +1,8 @@
 class User < ApplicationRecord
-  attr_accessor :otp_secret_key
-
   include ActiveModel::Validations
-  include ActiveModel::OneTimePassword
-  extend ActiveModel::Callbacks
-  define_model_callbacks :create
-
   validates_with PlaceboValidator
+
+  before_create :confirmation_token
   has_secure_password
 
   # validates_presence_of :store_id, :message => "not entered"

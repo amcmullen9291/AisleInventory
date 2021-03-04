@@ -1,6 +1,8 @@
-        <h4> search by SKU</h4>
+        <h4> Search By SKU</h4>
         <%= form_with model: @card  do |form|%>
-        <%= form.text_field :search%>
+        <%= form.text_field :sku_search%>
+        Search By Occasion
+        <%= form.text_field :occasion_search%>
         <%= submit_tag "Search"%>
         <%end%>        
         <br>

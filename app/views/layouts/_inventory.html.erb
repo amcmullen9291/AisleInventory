@@ -1,11 +1,17 @@
-        <h4> Search By SKU</h4>
-        <%= form_with model: @card  do |form|%>
-        <%= form.text_field :sku_search%>
-        Search By Occasion
-        <%= form.text_field :occasion_search%>
-        <%= submit_tag "Search"%>
-        <%end%>        
-        <br>
+  
+  <h2> Search</h2>
+  <%= form_with url: '/cards', method: :get do |form| %>
+    <%= form.label :query, "Enter SKU:" %>
+    <%= form.text_field :sku_search %>
+    <%= form.submit "Find SKU"%>
+    <%end%>
+    <%= form_with url:'cards_path', method: :get do |form| %>    
+    <%= form.label :query, "Search by Occasion:" %>
+    <%=form.collection_select(:occasion_search, Occasion.all, :id, :name_of) %><br>
+    <%= form.submit "Search By Occasion" %>
+  <% end %>
+  <br>
+  <h2>Current Inventory</h2>
   <table>
     <thead>
     <tr>
@@ -26,4 +32,6 @@
     </tr>
     <%end%>
     </tbody>
-    </table>
+    </table><br>
+
+

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
   get '/auth/github'
+
+  get '/search', to: 'cards#index'
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -36,24 +36,23 @@ class CardsController < ApplicationController
     end 
 
     def index 
-        @cards = Card.all
-        @results = Card.search
+        @cards = Card.search(params[:search]) 
     end 
 
     private 
     def card_params
-        params.require(:card).permit(:description, :in_stock, :aisle_id, :card, :occasion_id, :sku, :manufacturer_id, :avatar, :sku_search, :occasion_search)
+        params.require(:card).permit(:description, :in_stock, :aisle_id, :card, :occasion_id, :sku, :manufacturer_id, :avatar, :search)
     end
 
     def set_card 
         @card = Card.find(params[:id])
     end 
 
-    def self.search
-        if  params[:sku_search]
-            @results = Card.find_by(:sku.includes => params[:sku_search])
-        elsif params[:occsion_search]
-            @results = Card.find_by(:sku.includes => params[:occasion_search])
-        end 
-    end 
+    # def self.search
+    #     if  params[:sku_search]
+    #         @results = Card.find_by(:sku.includes => params[:sku_search])
+    #     elsif params[:occsion_search]
+    #         @results = Card.find_by(:sku.includes => params[:occasion_search])
+    #     end 
+    # end 
 end

@@ -8,5 +8,16 @@ class Card < ApplicationRecord
     validates :description, length: { maximum: 150 }
     has_one_attached :avatar
 
-    
+    def self.search(search)
+        if search
+            result = Card.find_by(:sku => search)
+            if result
+                self.where(:occasion_id => result)
+            else
+                Card.all
+            end
+        else
+            Card.all
+        end 
+    end
 end

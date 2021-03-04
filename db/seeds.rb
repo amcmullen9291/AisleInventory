@@ -1,7 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+@occasion = Occasion.create(:name_of => "Congratulations Cards")
+@occasion = Occasion.create(:name_of => "Farewell Cards")
+@occasion = Occasion.create(:name_of => "Friendship Cards")
+@occasion = Occasion.create(:name_of => "Good Luck Cards")
+@occasion = Occasion.create(:name_of => "Birthday Cards")
+@occasion = Occasion.create(:name_of => "Education Cards")
+@occasion = Occasion.create(:name_of => "Love cards")
+@occasion = Occasion.create(:name_of => "New Baby")
+@occasion = Occasion.create(:name_of => "Valentine's Day")
+@occasion = Occasion.create(:name_of => "Mother's Day")
+@occasion = Occasion.create(:name_of => "Father's Day") 
+@occasion = Occasion.create(:name_of => "Spanish Cards")
+@occasion = Occasion.create(:name_of => "Holidays Cards")
+@occasion = Occasion.create(:name_of => "Religious Cards")
+@occasion = Occasion.create(:name_of => "Holiday Cards")
+@occasion = Occasion.create(:name_of => "Christmas Cards")
+
+
+@man = Manufacturere.create(:name => "American Greetings")
+@man = Manufacturere.create(:name => "Carlton Cards")
+@man = Manufacturere.create(:name => "Papyrus")
+@man = Manufacturere.create(:name => "Recycled Paper Greetings")
+@man = Manufacturere.create(:name => "Hallmark Card")
+
+@aisle = Aisle.create(:aisle_number => "1")
+@aisle = Aisle.create(:aisle_number => "2")
+@aisle = Aisle.create(:aisle_number => "3")
+@aisle = Aisle.create(:aisle_number => "4")
+@aisle = Aisle.create(:aisle_number => "5")
+@aisle = Aisle.create(:aisle_number => "6")
+@aisle = Aisle.create(:aisle_number => "7")

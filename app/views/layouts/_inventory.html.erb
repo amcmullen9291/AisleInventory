@@ -1,9 +1,10 @@
   
-  <small><h2> Search</h2></small>
+  <div class= "details">
+  <center><h2> Search</h2>
   <%= form_with url: '/cards', method: :get do |form| %>
-    <%= form.label :search, "Enter SKU:" %>
+    <%= form.label :search, "Enter Entire SKU:" %>
     <%= form.text_field :search %>
-    <%= form.submit "Find SKU"%>
+    <%= form.submit "Find!"%>
     <%end%>
   <br>
   <h2>Current Inventory</h2>
@@ -27,6 +28,6 @@
     </tr>
     <%end%>
     </tbody>
-    </table><br>
-
-
+    </table>
+    </center>
+</div>

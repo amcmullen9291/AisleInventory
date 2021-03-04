@@ -36,12 +36,13 @@ class CardsController < ApplicationController
     end 
 
     def index 
-        @cards = Card.search(params[:search]) 
-    end 
+        @cards = Card.search(params[:search])
+         flash.notice = "#{@cards.count} items returned"
+    end
 
     private 
     def card_params
-        params.require(:card).permit(:description, :in_stock, :aisle_id, :card, :occasion_id, :sku, :manufacturer_id, :avatar, :search, occasion_search)
+        params.require(:card).permit(:description, :in_stock, :aisle_id, :card, :occasion_id, :sku, :manufacturer_id, :avatar, :search, :occasion_search)
     end
 
     def set_card 

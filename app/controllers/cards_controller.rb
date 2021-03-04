@@ -41,7 +41,7 @@ class CardsController < ApplicationController
 
     private 
     def card_params
-        params.require(:card).permit(:description, :in_stock, :aisle_id, :card, :occasion_id, :sku, :manufacturer_id, :avatar, :search)
+        params.require(:card).permit(:description, :in_stock, :aisle_id, :card, :occasion_id, :sku, :manufacturer_id, :avatar, :search, occasion_search)
     end
 
     def set_card 
@@ -55,4 +55,7 @@ class CardsController < ApplicationController
     #         @results = Card.find_by(:sku.includes => params[:occasion_search])
     #     end 
     # end 
+
+    def update_notice
+    end
 end

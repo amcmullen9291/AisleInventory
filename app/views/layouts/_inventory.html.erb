@@ -1,15 +1,10 @@
   
-  <h2> Search</h2>
+  <small><h2> Search</h2></small>
   <%= form_with url: '/cards', method: :get do |form| %>
-    <%= form.label :query, "Enter SKU:" %>
-    <%= form.text_field :sku_search %>
+    <%= form.label :search, "Enter SKU:" %>
+    <%= form.text_field :search %>
     <%= form.submit "Find SKU"%>
     <%end%>
-    <%= form_with url:'cards_path', method: :get do |form| %>    
-    <%= form.label :query, "Search by Occasion:" %>
-    <%=form.collection_select(:occasion_search, Occasion.all, :id, :name_of) %><br>
-    <%= form.submit "Search By Occasion" %>
-  <% end %>
   <br>
   <h2>Current Inventory</h2>
   <table>

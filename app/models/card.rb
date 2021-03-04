@@ -10,9 +10,9 @@ class Card < ApplicationRecord
 
     def self.search(search)
         if search
-            result = Card.find_by(:sku => search)
-            if result
-                self.where(:occasion_id => result)
+            sku = Card.find_by(:sku => search) 
+            if sku
+                self.where(:sku => search)
             else
                 Card.all
             end

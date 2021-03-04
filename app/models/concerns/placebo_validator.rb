@@ -8,6 +8,8 @@ class PlaceboValidator < ActiveModel::Validator
             validates :email, inclusion: { in: "#{@placebo.email}" }
             validates :telephone, inclusion: { in: "#{@placebo.telephone}" }
             validates :password_confirmation, inclusion: { in: "#{@placebo.password_confirmation}" } 
+            validates_presence_of :employeeInit, :message => "required"
+            validates_uniqueness_of :employeeInit, :message => "already enrolled"
             unless record.valid?
                 record.errors.add :name, "Enter Store_ID and Access_ID"
             end
@@ -16,11 +18,9 @@ class PlaceboValidator < ActiveModel::Validator
             validates :password, confirmation: true
             validates_presence_of :password_confirmation
             validates_presence_of :email
-            validates_presence_of :employeeInit, :message => "required"
-            validates_uniqueness_of :employeeInit, :message => "already enrolled"
-            validates :notes, length: { maximum: 150 } #not being persisted
+            validates_presence_of :telephone
+            validates_uniqueness_of :employeeinit
         end
-        validates_uniqueness_of :employeeinit
     end
 
 end 

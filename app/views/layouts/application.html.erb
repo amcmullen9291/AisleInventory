@@ -78,12 +78,12 @@
         <%end%>
         <% else %>
        <%= button_to 'request_access', "/auth/github", method: :post %><br>
-        <small><%=link_to "login", login_path %></small><br>
+        <small><%=link_to "login", login_path %><br>
        <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
       <% end %>
      
 <%= link_to "Home", root_path %>
-      <li>
+      <li> 
       </li>
       <li></li>
       <li class="nav-standout"><b><u>ADD</u></b>

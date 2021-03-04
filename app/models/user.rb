@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  attr_accessor :otp_secret_key, :email
+  attr_accessor :otp_secret_key
 
   include ActiveModel::Validations
   include ActiveModel::OneTimePassword
@@ -8,7 +8,6 @@ class User < ApplicationRecord
 
   validates_with PlaceboValidator
   has_secure_password
-  has_one_time_password 
 
   # validates_presence_of :store_id, :message => "not entered"
   # validates :password, confirmation: true
@@ -31,4 +30,10 @@ class User < ApplicationRecord
     end
   end
 
+  private
+    def confirmation_token
+      if self.confirm_token.blank?
+          self.confirm_token = SecureRandom.urlsafe_base64.to_s
+      end
+    end
 end

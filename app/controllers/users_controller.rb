@@ -38,6 +38,11 @@ class UsersController < ApplicationController
    def sign_in 
    end 
 
+   def refresh 
+        User.destroy_all
+        redirect_to root_path, flash.notice = "Account has been reset! Register Email."
+   end
+
    private 
 
    def set_user

@@ -73,9 +73,12 @@
         <% if @user.notes %>
           <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
         <%end%>
-       <% else %>
+        <% if User.first %>
+        <%= link_to '<button type="button">Reset AI</button>'.html_safe, new_user_path %>
+        <%end%>
+        <% else %>
        <%= button_to 'request_access', "/auth/github", method: :post %><br>
-       <small><%=link_to "login", login_path %></small><br>
+        <small><%=link_to "login", login_path %></small><br>
        <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
       <% end %>
      

@@ -20,7 +20,8 @@ Rails.application.routes.draw do
   get '/auth/github'
   get '/signup', to: 'users#new'
 
-  get '/search', to: 'cards#index'
+  get '/search', to: 'cards#index' 
+  get '/refresh', to: 'users#refresh'
   # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

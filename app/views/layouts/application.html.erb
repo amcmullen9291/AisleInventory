@@ -67,22 +67,13 @@
       </li>
       <li class="nav-add"><b><u>Aisle Access</u></b>
       </li>
-      <% if session[:user_id] %>
-      <small> <h4> Logged in  as: <%= @session[:user_id] %></h4></small><br>
-      <%= link_to "End Session", user_note_path %>
-        <% if @user.notes %>
-          <small><%= link_to('Exit Aisle', {:controller => "sessions", :action => 'logout'}, :method => :delete) %></small>
-        <%end%>
-        <% if User.first %>
+      <%= link_to "End Session", root_path %>
         <%= link_to '<button type="button">Reset AI</button>'.html_safe, new_user_path %>
-        <%end%>
-        <% else %>
        <%= button_to 'request_access', "/auth/github", method: :post %><br>
         <small><%=link_to "login", login_path %><br>
        <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
-      <% end %>
      
-<%= link_to "Home", root_path %>
+        <%= link_to "Home", root_path %>
       <li> 
       </li>
       <li></li>

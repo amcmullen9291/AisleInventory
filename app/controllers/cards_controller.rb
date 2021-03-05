@@ -49,14 +49,6 @@ class CardsController < ApplicationController
         @card = Card.find(params[:id])
     end 
 
-    # def self.search
-    #     if  params[:sku_search]
-    #         @results = Card.find_by(:sku.includes => params[:sku_search])
-    #     elsif params[:occsion_search]
-    #         @results = Card.find_by(:sku.includes => params[:occasion_search])
-    #     end 
-    # end 
-
     def update_notice
     end
 end

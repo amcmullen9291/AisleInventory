@@ -1,8 +1,8 @@
 <div class="log-form">
 <h2><center>Aisle Inventory</center></h2>
-  <%=form_with model: @user do |f| %>
-    <small><%= f.label :"Store ID"%></small>
-    <%= f.text_field :store_id%><br>
+  <%=form_with model: @session do |f| %>
+    <small><%= f.label :"Enter Email"%></small>
+    <%= f.text_field :email%><br>
     <small><%= f.label :"Access ID"%></small>
     <%= f.password_field :password%>
     <%= f.submit "Go!" %>

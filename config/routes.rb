@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'users#welcome'
+  resources :sessions
   resources :cards 
   resources :occasions, except: [:show]
   resources :aisles
@@ -15,10 +16,9 @@ Rails.application.routes.draw do
 
 
   get '/login', to: 'users#sign_in'
-  get "/auth/:provider/callback" => "sessions#create"
   get "/signout" => "sessions#destroy", :as => :signout
-  get '/auth/github'
   get '/signup', to: 'users#new'
+  post '/login', to: 'sessions#create'
 
   get '/search', to: 'cards#index' 
   get '/refresh', to: 'users#refresh'

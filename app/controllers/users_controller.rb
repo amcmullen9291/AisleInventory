@@ -12,7 +12,7 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy ]
     @session = session
        @user = User.new(user_params)
        if @user.save
-        UserMailer.registration_confirmation(@user).deliver!
+        UserMailer.registration_confirmation(@user).deliver_now
         @session[:user_id] = @user.employeeInit
            redirect_to root_path, notice: "Welcome"
        else
@@ -49,7 +49,7 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy ]
    end
 
    def user_params 
-       params.require(:user).permit(:password, password_confirmation, :store_id, :notes, :employeeInit, :password_digest, :telephone, :uid, :uname, :uemail)
+       params.require(:user).permit(:password, :password_confirmation, :store_id, :notes, :employeeInit, :password_digest, :telephone, :uid, :uname, :uemail, :email)
    end     
 
    def confirm_email

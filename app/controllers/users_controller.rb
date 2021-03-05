@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [ :show, :edit, :update, :destroy, ]
-skip_before_action :authorize, only: [ :welcome ]
+skip_before_action :authorize, only: [ :welcome, :new, :create ]
+before_action :owner_rights, only:[:refresh]
     def welcome 
    end 
 
@@ -9,15 +10,21 @@ skip_before_action :authorize, only: [ :welcome ]
    end
 
    def create 
-       @user = User.new(user_params)
-       if @user.save
-        UserMailer.registration_confirmation(@user).deliver_now
-        session[:user_id] = @user.id
-           redirect_to cards_path, notice: "Welcome"
+       if !@user = User.first 
+         @user.placebo
        else
-           render :new, notice: "Access Denied"
+         @user = User.new(user_params)
        end
-   end 
+        if @user.save
+            if @user == User.first 
+                UserMailer.registration_confirmation(@user).deliver_now
+            end
+            session[:user_id] = @user.id
+            redirect_to cards_path, notice: "Welcome"
+        else 
+            render :new
+        end
+    end 
    
    def show 
    end 
@@ -62,6 +69,10 @@ skip_before_action :authorize, only: [ :welcome ]
             flash[:error] = "Sorry. User does not exist"
             redirect_to root_url
         end
+    end
+
+    def owner_rights 
+        authorize && User.first
     end
 
 end

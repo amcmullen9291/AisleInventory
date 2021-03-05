@@ -21,7 +21,7 @@ class Card < ApplicationRecord
         end 
     end
 
-    def better_flash 
-       message= pluralize(@card.count, 'item')
-    end 
+    # def better_flash 
+    #    message= pluralize(@card.count, 'item')
+    # end 
 end

@@ -3,7 +3,6 @@ class User < ApplicationRecord
   before_create :confirmation_token
   has_secure_password
 
-      validates_uniqueness_of :employeeInit, :message => "already enrolled"
       validates_presence_of :store_id, :message => "not entered"
       validates :password, confirmation: true
       validates_presence_of :password_confirmation
@@ -22,6 +21,21 @@ class User < ApplicationRecord
       user.name = auth["info"]["name"]
     end
   end
+
+  def placebo
+    if !@user = User.first
+      @user = User.new
+      @placebo = User.first 
+      @user.email = @placebo.email 
+      @user.password = @placebo.password
+      @user.telephone = @placebo.telephone
+      @user.store_id = @placebo.store_id 
+      @user.password_confirmation = @placebo.password_confirmation
+      @user.employeeInit = params[:user][:employeeInit]
+    end 
+  end
+
+
 
   private
     def confirmation_token

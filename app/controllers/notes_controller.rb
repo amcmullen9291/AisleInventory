@@ -1,14 +1,23 @@
 class NotesController < ApplicationController
     def new 
-        @user = User.find_by(params[:id])
         @note = Note.new
     end
 
     def create  
-        @note= Note.create(params)
-        redirect_to 'sessions#logout'
+        @note = Note.new(notes_params)
+        if @note.save
+            redirect_to signout_path
+        else 
+            redirect_to new_note_path, :notice => "Comments and Signature Req."
+        end
     end
 
     def destroy 
+        @note.destroy
     end 
+
+    private 
+    def notes_params 
+        params.require(:note).permit(:employeeInit, :content)
+    end
 end

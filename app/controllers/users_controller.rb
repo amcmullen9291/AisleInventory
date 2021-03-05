@@ -10,15 +10,12 @@ before_action :owner_rights, only:[:refresh]
    end
 
    def create 
-       if !@user = User.first 
-         @user.placebo
-       else
-         @user = User.new(user_params)
-       end
+       @user = User.new(user_params)
         if @user.save
             if @user == User.first 
                 UserMailer.registration_confirmation(@user).deliver_now
             end
+            @user.update(@user.placebo)
             session[:user_id] = @user.id
             redirect_to cards_path, notice: "Welcome"
         else 

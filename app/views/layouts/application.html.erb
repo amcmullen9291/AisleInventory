@@ -29,8 +29,6 @@
     </header>
   <nav class="sidebar-nav">
 <br>
-<br>
-<br>
     <ul>
       <li>
         <a href="#"><i class="ion-bag"></i> <span></span></a>
@@ -54,11 +52,8 @@
       </li>
       <li class="nav-add"><b><u>Locator</u></b>
       </li>
-    <li>
-  </li>
-  <li>
-  <small><%=link_to "Find a SKU", cards_path %></small>
-</li>
+<%= link_to '<button type="button">Find a SKU</button>'.html_safe, cards_path %><br>
+
 
     </ul>
     <ul class="nav-flyout">
@@ -67,9 +62,11 @@
       </li>
       <li class="nav-add"><b><u>Aisle Access</u></b>
       </li>
-      <%= link_to "End Session", root_path %>
-        <%= link_to '<button type="button">Reset AI</button>'.html_safe, new_user_path %>
-       <%= button_to 'request_access', "/auth/github", method: :post %><br>
+        <%= link_to '<button type="button">Reset Users</button>'.html_safe, refresh_path %><br>
+       <br>
+       <%=link_to root_path do%>
+        <%= button_tag image_tag('blog-see-01').html_safe%><br>
+        <%end%>
         <small><%=link_to "login", login_path %><br>
        <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
      

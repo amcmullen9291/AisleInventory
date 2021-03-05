@@ -39,7 +39,7 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy ]
 
    def refresh 
         User.destroy_all
-        redirect_to root_path, flash.notice = "Account has been reset! Register Email."
+        redirect_to root_path, notice: "Account has been reset! Register Email."
    end
 
    private 

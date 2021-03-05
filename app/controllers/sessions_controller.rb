@@ -5,10 +5,11 @@ class SessionsController < ApplicationController
   end 
 
   def create
+    @session = session
     @user = User.find_by(:employeeInit => params[:employeeInit])
       if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        flash[:notice] = "Signed in."
+        @session[:user_id] = @user.id
+        flash[:notice] = "Signed in as #{@user.employeeInit}."
         redirect_to cards_path
       else
     flash[:error] = "Enter AccessID and StoreID."

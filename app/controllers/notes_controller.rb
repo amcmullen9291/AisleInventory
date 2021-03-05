@@ -1,5 +1,7 @@
 class NotesController < ApplicationController
     def new 
+        @user = User.find_by(params[:id])
+        @note = Note.new
     end
 
     def create  

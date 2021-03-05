@@ -10,10 +10,10 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :confirm_email
-      resources :notes
     end  
   end
 
+  resources :notes 
 
   get "/signout" => "sessions#destroy", :as => :signout
   get '/signup', to: 'users#new'

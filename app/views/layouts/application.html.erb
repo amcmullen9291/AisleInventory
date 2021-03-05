@@ -64,16 +64,13 @@
       </li>
           <%= link_to '<button type="button">Reset Users</button>'.html_safe, refresh_path %><br>
           <br>
-          <%= link_to "Home", root_path %> <br>
           <%=link_to '/auth/google' do%>
             <%= button_tag image_tag('blog-see-01')%><br>
           <%end%>
-          <% if session[:user_id] %>
-          <li> <%=link_to "end session", new_user_note_path(@user)%></li>
-          <%end %>
-          <small><%=link_to "login", login_path %></small><br>
           <%= link_to '<button type="button">Sign Up</button>'.html_safe, new_user_path %> <br>
-      <li> 
+          <small><%=link_to "login", login_path %></small><br>
+          <%= link_to "End Sesson", new_note_path %>
+          <li> 
       </li>
       <li></li>
       <li class="nav-standout"><b><u>ADD</u></b>

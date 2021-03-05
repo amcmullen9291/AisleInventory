@@ -9,7 +9,7 @@
     <%=form_with model: @note do |f|%>
         <%= f.text_area :notes, size: "60x20"%><br>
         <div class= "initials">
-        <small>signed, <%= f.text_field :employeeInit, size: "3" %></small>
+        <small>signed, <%= f.text_field :employeeInit, size: "3" ,value:@user.employeeInit, :readonly => true%></small>
         </div>
         <%= f.submit "Thank You"%>
         <%end%>

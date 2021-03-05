@@ -1,0 +1,25 @@
+<% render '/cards/error' %>
+   <div class= "details">
+    <center><%= form_with model: @card do |f| %>
+        <center>Select Occasion:</center><br>
+        <%=f.collection_select(:occasion_id, Occasion.all, :id, :name_of) %><br>
+        <br>
+        Manufacturer:
+        <%=f.collection_select(:manufacturer_id, Manufacturere.all, :id, :name, :include_blank => true) %><br>
+        <br>
+        <%= f.label :in_stock %>
+        <%= f.text_field :in_stock %><br>
+<br>
+        <%= f.label :aisle_id%> Number
+        <%=f.collection_select(:aisle_id, Aisle.all, :id, :aisle_number, :include_blank => true) %><br>
+
+    <br>
+        <%= f.label "Stock Image" %><br>
+        <%= f.file_field :avatar %><br>
+        <br>
+        <%= f.label :"Description" %><br>
+        <%=f.text_area :description, size: "25x9" %><br>
+        <br>
+        <%= f.submit "Add Product"%>
+    <%end%></center>
+    </div>

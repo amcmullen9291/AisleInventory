@@ -37,7 +37,7 @@ class CardsController < ApplicationController
 
     def index 
         @cards = Card.search(params[:search])
-        #  flash.notice = "#{@cards.count} items returned"
+         flash.notice = "#{@cards.count} items returned"
     end
 
     private 

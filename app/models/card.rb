@@ -20,4 +20,8 @@ class Card < ApplicationRecord
             Card.all
         end 
     end
+
+    def better_flash 
+       message= pluralize(@card.count, 'item')
+    end 
 end

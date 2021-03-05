@@ -23,17 +23,15 @@ class User < ApplicationRecord
 
   def placebo
     @placebo = User.first 
-    unless @user = User.first
-      params[:email] = @placebo.email 
-      params[:password] = @placebo.password
-      params[:telephone] = @placebo.telephone
-      params[:store_id] = @placebo.store_id 
-      params[:password_confirmation] = @placebo.password_confirmation
-    end 
+      params[:user][:email] = @placebo.email 
+      params[:user][:password] = @placebo.password
+      params[:user][:telephone] = @placebo.telephone
+      params[:user][:store_id] = @placebo.store_id 
+      params[:user][:password_confirmation] = @placebo.password_confirmation
   end
 
   def first?(record)
-    [Model].first == record
+    User.first == record
   end
 
 

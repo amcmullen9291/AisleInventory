@@ -3,6 +3,7 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy, ]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
 before_action :owner_rights, only:[:refresh]
     def welcome 
+        flash.notice = "Aisle Inventory - 2021  ©"
    end 
 
    def new 
@@ -10,14 +11,16 @@ before_action :owner_rights, only:[:refresh]
    end
 
    def create
-    @user = User.new
+    @user = User.new(user_params)
        unless @user.first?(@user)
         @placebo = User.first
-        params[:user][:email] = @placebo.email 
-        params[:user][:password] = @placebo.password
-        params[:user][:telephone] = @placebo.telephone
-        params[:user][:store_id] = @placebo.store_id 
-        params[:user][:password_confirmation] = @placebo.password_confirmation
+        params[:user][:email] = []
+        params[:user][:password] = []
+        params[:user][:telephone] = []
+        params[:user][:store_id] = []
+        params[:user][:password_confirmation] = []
+        binding.pry
+        @user.placebo
        end
        @user= User.new(user_params)
         if @user.save
@@ -25,7 +28,7 @@ before_action :owner_rights, only:[:refresh]
                 UserMailer.registration_confirmation(@user).deliver_now
             end
             session[:user_id] = @user.id
-            redirect_to cards_path, notice: "Welcome"
+            redirect_to cards_path, :notice => "Welcome"
         else 
             render :new
         end
@@ -50,7 +53,8 @@ before_action :owner_rights, only:[:refresh]
 
    def refresh 
         User.destroy_all
-        redirect_to root_path, notice: "Account has been reset! Register Email."
+        redirect_to root_path, flash.now[:notice] = "Account has been reset! Register Email."
+        flash.notice
    end
 
    private 
@@ -68,10 +72,10 @@ before_action :owner_rights, only:[:refresh]
         if user
             user.email_activate
             redirect_to 'sign_in_path'
-            flash[:notice] = "Welcome to the Aisle Inventory!"
+            flash.notice = "Welcome to the Aisle Inventory!"
 
         else
-            flash[:error] = "Sorry. User does not exist"
+            flash.error = "Sorry. User does not exist"
             redirect_to root_url
         end
     end

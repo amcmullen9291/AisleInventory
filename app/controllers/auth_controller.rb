@@ -1,5 +1,5 @@
 class AuthController < ApplicationController
 
-    def github
+    def google
     end
 end 

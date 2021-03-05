@@ -15,13 +15,15 @@ Rails.application.routes.draw do
   end
 
 
-  get '/login', to: 'users#sign_in'
   get "/signout" => "sessions#destroy", :as => :signout
   get '/signup', to: 'users#new'
-  post '/login', to: 'sessions#create'
+  
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
 
   get '/search', to: 'cards#index' 
   get '/refresh', to: 'users#refresh'
-  # match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  get '/auth/google'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

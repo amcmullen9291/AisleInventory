@@ -25,13 +25,11 @@ gem 'bcrypt', '~> 3.1.7'
 #added gems
 gem 'faker', '~> 2.16'
 gem 'active_model_otp', '~> 2.1'
-gem 'omniauth-github', '~> 2.0'
-gem 'omniauth', '~> 2.0', '>= 2.0.3'
-gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
-gem 'omniauth-google-oauth2', '~> 0.8.1'
+gem 'omniauth'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'pry'
 gem 'securerandom', '~> 0.1.0'
+gem 'omniauth-google'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

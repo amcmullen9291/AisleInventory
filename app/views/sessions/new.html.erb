@@ -1,11 +1,11 @@
 <div class= "whiteboard">
 <center><h2>Enter Store Code</h2></center>
-    <center><%= form_with model: @session do |f| %>
+    <center><%= form_tag('/login') do %>
     <p>Access Num -- StoreID -- EmployeeID<br></p>
-    <%= f.password_field :password%>
-    <%= f.text_field :store_id %>
-    <%= f.text_field :EmployeeInit %>
-    <%= f.submit "OK"%>
- <%end%>
+    <%= password_field_tag :password %>
+    <%= text_field_tag :store_id %>
+    <%= text_field_tag :employeeInit %>
+    <%= submit_tag "OK"%>
+    <%end%>
  </center>
 </div>

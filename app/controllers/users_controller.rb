@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [ :show, :edit, :update, :destroy ]
+before_action :set_user, only: [ :show, :edit, :update, :destroy, ]
     def welcome 
         flash.notice = "Aisle Inventory - 2021  ©"
    end 
@@ -9,12 +9,11 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy ]
    end
 
    def create 
-    @session = session
        @user = User.new(user_params)
        if @user.save
         UserMailer.registration_confirmation(@user).deliver_now
-        @session[:user_id] = @user.employeeInit
-           redirect_to root_path, notice: "Welcome"
+        session[:user_id] = @user.id
+           redirect_to cards_path, notice: "Welcome"
        else
            render :new, notice: "Access Denied"
        end
@@ -64,4 +63,5 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy ]
             redirect_to root_url
         end
     end
+
 end

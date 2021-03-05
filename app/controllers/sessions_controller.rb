@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
   before_action :set_user, only: [:logout]
+  skip_before_action :authorize, only: [:new]
+
   
   def new 
   end 

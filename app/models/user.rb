@@ -8,7 +8,6 @@ class User < ApplicationRecord
       validates_presence_of :password_confirmation
       validates_presence_of :email
       validates_presence_of :telephone
-      validates_uniqueness_of :employeeInit
 
   def self.sign_in_from_omniauth(auth)
     find_by(provider: auth['email'], uid: auth['uid'] || create_user_from_omniauth(auth))
@@ -23,16 +22,18 @@ class User < ApplicationRecord
   end
 
   def placebo
-    if !@user = User.first
-      @user = User.new
-      @placebo = User.first 
-      @user.email = @placebo.email 
-      @user.password = @placebo.password
-      @user.telephone = @placebo.telephone
-      @user.store_id = @placebo.store_id 
-      @user.password_confirmation = @placebo.password_confirmation
-      @user.employeeInit = params[:user][:employeeInit]
+    @placebo = User.first 
+    unless @user = User.first
+      params[:email] = @placebo.email 
+      params[:password] = @placebo.password
+      params[:telephone] = @placebo.telephone
+      params[:store_id] = @placebo.store_id 
+      params[:password_confirmation] = @placebo.password_confirmation
     end 
+  end
+
+  def first?(record)
+    [Model].first == record
   end
 
 

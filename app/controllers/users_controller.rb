@@ -9,13 +9,21 @@ before_action :owner_rights, only:[:refresh]
        @user = User.new
    end
 
-   def create 
-       @user = User.new(user_params)
+   def create
+    @user = User.new
+       unless @user.first?(@user)
+        @placebo = User.first
+        params[:user][:email] = @placebo.email 
+        params[:user][:password] = @placebo.password
+        params[:user][:telephone] = @placebo.telephone
+        params[:user][:store_id] = @placebo.store_id 
+        params[:user][:password_confirmation] = @placebo.password_confirmation
+       end
+       @user= User.new(user_params)
         if @user.save
             if @user == User.first 
                 UserMailer.registration_confirmation(@user).deliver_now
             end
-            @user.update(@user.placebo)
             session[:user_id] = @user.id
             redirect_to cards_path, notice: "Welcome"
         else 

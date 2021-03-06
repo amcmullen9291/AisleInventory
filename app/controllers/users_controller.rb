@@ -3,6 +3,12 @@ before_action :set_user, only: [ :show, :edit, :update, :destroy, ]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
 before_action :owner_rights, only:[:refresh]
     def welcome 
+        case 
+        when User.first 
+            redirect_to  '/users/registration'
+        else 
+
+        end
         flash.notice = "Aisle Inventory - 2021  ©"
    end 
 
@@ -12,15 +18,12 @@ before_action :owner_rights, only:[:refresh]
 
    def create
     @user = User.new(user_params)
-       unless @user.first?(@user)
-        @user.email = nil
-        @user.password = nil
-        @user.telephone = nil
-        @user.store_id = nil
-        @user.password_confirmation = nil
-        @user = User.new(placebo)
-       end
-       binding.pry
+
+        @user.email = "amcmullen9291@gmail.com"
+        @user.password = "orangestarfish3vk"
+        @user.telephone = "7068818307"
+        @user.store_id = "5340620431"
+        @user.password_confirmation = "orangestarfish3vk"
         if @user.save
             if @user == User.first 
                 UserMailer.registration_confirmation(@user).deliver_now
@@ -79,17 +82,13 @@ before_action :owner_rights, only:[:refresh]
 
     def owner_rights 
         authorize && User.first
+    end    
+
+    def registration  
+        redirect_to :'users/registartion'
     end
-
-    def placebo
-        @user = User.new
-        @placebo = User.first 
-          @user.email = @placebo.email 
-          @user.password = @placebo.password
-          @user.telephone = @placebo.telephone
-          @user.store_id = @placebo.store_id 
-          @user.password_confirmation = @placebo.password_confirmation
-      end
     
-
+    def signin 
+        render(:template => registration )
+    end
 end

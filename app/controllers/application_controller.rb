@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authorize
+  helper_method :current_user, :logged_in?
 
     def current_user
         @user ||= User.find(session[:user_id]) if session[:user_id]
@@ -8,6 +9,9 @@ class ApplicationController < ActionController::Base
     
     def authorize
       redirect_to root_path unless current_user
-      flash.notice = "Sign Into AisleInventroy"
+    end
+
+    def logged_in?
+      !!current_user
     end
 end

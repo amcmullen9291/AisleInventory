@@ -48,6 +48,7 @@ before_action :owner_rights, only:[:refresh, :registration]
    end 
 
    def registration
+    @user = User.new
     end 
 
    def refresh 

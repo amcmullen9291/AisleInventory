@@ -1,12 +1,15 @@
 class NotesController < ApplicationController
+    skip_before_action :authorize
+
     def new 
         @note = Note.new
+        flash.notice = "Report And Signature Req."
     end
 
     def create  
         @note = Note.new(notes_params)
         if @note.save
-            UserMailer.activity_report(current_user, params[:note][:content]).deliver_now
+            UserMailer.activity_report(User.first.email, params[:note][:content]).deliver_now
 
             redirect_to signout_path
         else 

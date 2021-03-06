@@ -25,8 +25,6 @@ class User < ApplicationRecord
     User.first == record
   end
 
-
-
   private
     def confirmation_token
       if self.confirm_token.blank?

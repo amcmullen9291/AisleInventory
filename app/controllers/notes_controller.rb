@@ -9,7 +9,7 @@ class NotesController < ApplicationController
     def create  
         @note = Note.new(notes_params)
         if @note.save
-            UserMailer.activity_report(User.first.email, params[:note][:content]).deliver_now
+            UserMailer.activity_report(User.first.email, User.first.store_id,  params[:note][:content], params[:note][:employeeInit]).deliver_now
 
             redirect_to signout_path
         else 

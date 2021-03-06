@@ -6,12 +6,12 @@ class UserMailer < ActionMailer::Base
         mail(:to => "#{user.store_id} <#{user.email}>", :subject => "Aisle Invertory Registration Confirmation")
     end
 
-    def activity_report(user, content)
+    def activity_report(user, store, content, init)
         @user = user 
-        mail(to: @user.email,
+        mail(to: @user,
         content_type: "text/html", 
-        body: content,
-        subject: "store #{@user.store_id} Inventory Report")
+        body: content, 
+        subject: "store #{store} Inventory Report <#{init}>")
     end
 
 end

@@ -18,7 +18,7 @@ before_action :owner_rights, only:[:refresh]
         @user.telephone = nil
         @user.store_id = nil
         @user.password_confirmation = nil
-        @user.placebo
+        @user = User.new(placebo)
        end
        binding.pry
         if @user.save
@@ -51,8 +51,7 @@ before_action :owner_rights, only:[:refresh]
 
    def refresh 
         User.destroy_all
-        redirect_to root_path, flash.now[:notice] = "Account has been reset! Register Email."
-        flash.notice
+        redirect_to root_path, flash.notice = "Account has been reset! Register Email."
    end
 
    private 

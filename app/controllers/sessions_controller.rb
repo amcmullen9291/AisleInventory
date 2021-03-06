@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
         flash.now[:notice] = "Signed in as #{@user.employeeInit.upcase}"
         redirect_to cards_path
       else
-    :notice => "Enter AccessID and StoreID."
+    flash.notice = "Enter AccessID and StoreID."
     render :new
     end
   end

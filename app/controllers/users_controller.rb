@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [ :show, :edit, :update, :destroy, ]
-skip_before_action :authorize, only: [ :welcome, :new, :create ]
-before_action :owner_rights, only:[:refresh]
+before_action :set_user, only: [:show, :edit, :update, :destroy]
+skip_before_action :authorize, only: [ :welcome, :new, :create, :registration ]
+before_action :owner_rights, only:[:refresh, :registration]
 
     def welcome 
         case 
@@ -47,6 +47,10 @@ before_action :owner_rights, only:[:refresh]
    def sign_in 
    end 
 
+   def registration
+        render layout: registration
+    end 
+
    def refresh 
         User.destroy_all
         redirect_to root_path, flash.notice = "Account has been reset! Register Email."
@@ -77,26 +81,5 @@ before_action :owner_rights, only:[:refresh]
 
     def owner_rights 
         authorize && User.first
-    end    
-
-    def replaced 
-        @user = User.new(user_params)
-        @user.email = nil
-        @user.password = nil
-        @user.password_confirmation = nil
-        @user.telephone = nil
-        @user.store_id = nil
-    end 
-
-    def placebo
-    placebo = User.find(1)
-        @user = User.new
-        @user.email = placebo.email
-        @user.password = placebo.password
-        @user.password_confirmation = placebo.password_confirmation
-        @user.telephone = placebo.telephone
-        @user.store_id = placebo.store_id
-        @user.save
-    end     
-    
+    end        
 end

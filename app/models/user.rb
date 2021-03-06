@@ -1,5 +1,4 @@
 class User < ApplicationRecord
- 
   before_create :confirmation_token
   has_secure_password
 

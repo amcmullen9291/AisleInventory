@@ -1,0 +1,16 @@
+<% render '/users/errors' %>
+<div class= "whiteboard">
+<center><h2></h2></center>
+    <center><%= form_with model: @user do |f| %>
+    <small><center> Employee initials accompany <br><b>All</b> Inventroy Report emails.<center></small></p>
+    <%= f.hidden_field :password%><br>
+    Store ID: <%= f.text_field :store_id, readonly: true %><br>
+    Employee Initials<%= f.text_field :employeeInit %><br>
+    <%= f.hidden_field :password_confirmation, value: User.first.password_confirmation %><br>
+        <%= f.hidden_field :email, value: User.first.email%><br>
+    <%= f.hidden_field :telephone, value: User.first.telephone %>
+    <%= f.submit "add"%>
+ <%end%> 
+ </center>
+ </div>
+

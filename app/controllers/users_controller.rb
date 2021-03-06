@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
-skip_before_action :authorize, only: [ :welcome, :new, :create, :registration ]
+skip_before_action :authorize, only: [ :welcome, :new, :create ]
 before_action :owner_rights, only:[:refresh, :registration]
 
     def welcome 
@@ -48,7 +48,6 @@ before_action :owner_rights, only:[:refresh, :registration]
    end 
 
    def registration
-        render layout: registration
     end 
 
    def refresh 

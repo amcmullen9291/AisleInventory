@@ -13,16 +13,14 @@ before_action :owner_rights, only:[:refresh]
    def create
     @user = User.new(user_params)
        unless @user.first?(@user)
-        @placebo = User.first
-        params[:user][:email] = []
-        params[:user][:password] = []
-        params[:user][:telephone] = []
-        params[:user][:store_id] = []
-        params[:user][:password_confirmation] = []
-        binding.pry
+        @user.email = nil
+        @user.password = nil
+        @user.telephone = nil
+        @user.store_id = nil
+        @user.password_confirmation = nil
         @user.placebo
        end
-       @user= User.new(user_params)
+       binding.pry
         if @user.save
             if @user == User.first 
                 UserMailer.registration_confirmation(@user).deliver_now
@@ -83,5 +81,16 @@ before_action :owner_rights, only:[:refresh]
     def owner_rights 
         authorize && User.first
     end
+
+    def placebo
+        @user = User.new
+        @placebo = User.first 
+          @user.email = @placebo.email 
+          @user.password = @placebo.password
+          @user.telephone = @placebo.telephone
+          @user.store_id = @placebo.store_id 
+          @user.password_confirmation = @placebo.password_confirmation
+      end
+    
 
 end

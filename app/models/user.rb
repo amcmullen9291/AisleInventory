@@ -7,7 +7,7 @@ class User < ApplicationRecord
       validates :password, confirmation: true
       validates_presence_of :password_confirmation
       validates_presence_of :email
-      validates_presence_of :telephone
+      # validates_presence_of :telephone
 
   def self.sign_in_from_omniauth(auth)
     find_by(provider: auth['email'], uid: auth['uid'] || create_user_from_omniauth(auth))
@@ -22,12 +22,13 @@ class User < ApplicationRecord
   end
 
   def placebo
+    @user = User.new
     @placebo = User.first 
-      params[:user][:email] = @placebo.email 
-      params[:user][:password] = @placebo.password
-      params[:user][:telephone] = @placebo.telephone
-      params[:user][:store_id] = @placebo.store_id 
-      params[:user][:password_confirmation] = @placebo.password_confirmation
+      @user.email = @placebo.email 
+      @user.password = @placebo.password
+      @user.telephone = @placebo.telephone
+      @user.store_id = @placebo.store_id 
+      @user.password_confirmation = @placebo.password_confirmation
   end
 
   def first?(record)

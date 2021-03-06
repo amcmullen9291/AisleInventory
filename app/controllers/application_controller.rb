@@ -8,6 +8,6 @@ class ApplicationController < ActionController::Base
     
       def authorize
         redirect_to root_path unless current_user
-        flash.now[:notice] = "Sign Into AisleInventroy"
+        flash.notice = "Sign Into AisleInventroy"
       end
     end

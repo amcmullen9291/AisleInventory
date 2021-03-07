@@ -14,15 +14,20 @@ class SessionsController < ApplicationController
 
   def create
     @session = session
-    @user = User.find_by(:employeeInit => params[:employeeInit])
-      if @user && @user.authenticate(params[:password])
-        @session[:user_id] = @user.id
-        flash.notice = "Signed in as #{@user.employeeInit.upcase}"
-        redirect_to cards_path
+    if auth = request.env["omniauth.auth"]
+      @user = User.find_or_create_by_omniauth(auth)
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      user = User.find_or_create_by(:email => params[:email])
+      if user && user.authenticate(params[:password])
+        session[:user_id] = user.id
+        redirect_to root_path
       else
-      flash.notice = "Enter AccessID and StoreID."
-      render :new
+        render 'sessions/new'
+      end
     end
+  
   end
 
   def destroy

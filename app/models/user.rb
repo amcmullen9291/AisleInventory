@@ -13,13 +13,19 @@ class User < ApplicationRecord
     find_by(provider: auth['email'], uid: auth['uid'] || create_user_from_omniauth(auth))
   end
 
-  def self.create_user_from_omniauth(auth)
-    create! do |user|
-      user.provider = auth["info"]["provider"]
-      user.uid = auth["info"]["uid"]
-      user.name = auth["info"]["name"]
+  # def self.create_user_from_omniauth(auth)
+  #   create! do |user|
+  #     user.provider = auth["info"]["provider"]
+  #     user.uid = auth["info"]["uid"]
+  #     user.name = auth["info"]["name"]
+  #   end
+
+    def self.find_or_create_by_omniauth(auth)
+      oauth_email = auth["info"]["email"] || auth["info"]["uid"] || auth["info"]["provider"]
+      self.where(:email => oauth_email).first_or_create do |user|
+        user.password = SecureRandom.hex
+      end
     end
-  end
 
   def first?(record)
     User.first == record

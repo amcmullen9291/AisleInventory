@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update]
+before_action :set_user, only: [:show, :edit, :update, :destroy]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
 before_action :owner_rights, only:[:refresh, :removeUser]
 
@@ -68,10 +68,8 @@ before_action :owner_rights, only:[:refresh, :removeUser]
    end 
 
    def destroy
-    raise "wrong route"
-    binding.pry 
     @user.destroy 
-    redirect_to root_path
+    redirect_to 'sessions#destroy'
     flash.notice = "Users Updated"
    end 
 

@@ -1,0 +1,24 @@
+<dix class= "whiteboard">
+<div class= "paper">
+<section id= "instructions">
+<small><center>Cor·re·spond·ence</center></small>
+</section>
+<center>
+<p id= "delete-button">
+<%= form_for(user, :method => :delete, :remote => true) do |f| %>
+    <%= f.submit :value => "Delete Account" %>
+    <% end %></p>
+
+    <p class= "endnotes">
+    <%=form_with model: @note do |f|%>
+        <%= f.text_area :content, size: "60x20"%><br>
+        <div class= "initials">
+        <p class= "uppercase">
+        <small>signed, <%= f.text_field :employeeInit, size: "3", value: "#{@user.employeeInit}", readonly: true%></small>
+        </p>
+        </div>
+        <%= f.submit "Thank You"%>
+        <%end%>
+        </p></center>
+</div>
+</div>

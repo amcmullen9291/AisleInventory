@@ -11,7 +11,7 @@ class UserMailer < ActionMailer::Base
         mail(to: @user,
         content_type: "text/html", 
         body: content, 
-        subject: "store #{store} Inventory Report < #{init} >")
+        subject: "store #{store} Report < #{init} >")
     end
 
 end

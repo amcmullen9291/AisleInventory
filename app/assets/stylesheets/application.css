@@ -307,4 +307,9 @@
 .warning {
   color: red;
 }
+
+#delete-button{
+  background-color:orangered;
+  color:yellow;
+}
   © 2021 GitHub, Inc.

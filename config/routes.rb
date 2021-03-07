@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+mount Sidekiq::Web => '/sidekiq'
+
 Rails.application.routes.draw do
   root to: 'users#welcome'
   resources :sessions

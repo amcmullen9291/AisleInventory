@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
-before_action :owner_rights, only:[:refresh, :removeUser]
+before_action :owner_rights, only:[:refresh, :registration]
 
     def welcome 
         case 

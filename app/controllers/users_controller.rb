@@ -68,9 +68,10 @@ before_action :owner_rights, only:[:refresh, :removeUser]
    end 
 
    def destroy
+    session[user_id] = nil
     @user.destroy 
-    redirect_to 'sessions#destroy'
     flash.notice = "Users Updated"
+    redirect_to root_path
    end 
 
    private 

@@ -5,7 +5,7 @@
 </section>
 <center>
 <p id= "delete-button">
-<%= form_for(user, :method => :delete, :remote => true) do |f| %>
+<%= form_for(@user, :method => :delete, :remote => true, authenticity_token: true) do |f| %>
     <%= f.submit :value => "Delete Account" %>
     <% end %></p>
 

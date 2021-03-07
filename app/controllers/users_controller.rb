@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
-before_action :owner_rights, only:[:refresh, :registration]
+before_action :owner_rights, only:[:refresh ]
 
     def welcome 
         case 
@@ -48,7 +48,12 @@ before_action :owner_rights, only:[:refresh, :registration]
    end 
 
    def registration
-    @user = User.new
+        if session[:user_id] == "1"
+        @user = User.new
+        else
+            redirect_to root_path
+             flash.notice = "you are not authorized to add accts."
+        end 
     end 
 
    def refresh 

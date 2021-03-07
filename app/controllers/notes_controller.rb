@@ -1,5 +1,6 @@
 class NotesController < ApplicationController
     skip_before_action :authorize
+    before_action :set_user, only: [:new]
 
     def new 
         @note = Note.new
@@ -24,5 +25,9 @@ class NotesController < ApplicationController
     private 
     def notes_params 
         params.require(:note).permit(:employeeInit, :content)
+    end
+
+    def set_user 
+        @user = User.find(current_user.id)
     end
 end

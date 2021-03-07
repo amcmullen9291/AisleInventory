@@ -6,8 +6,9 @@ class SessionsController < ApplicationController
   def new 
     if current_user 
       flash.notice = "you are already logged in"
-      redirect_to '/users/user_error'
+      redirect_to user_error_path
     else 
+
     end 
   end 
 

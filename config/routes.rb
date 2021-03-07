@@ -26,5 +26,6 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/auth/google'
   get '/registration', to: 'users#registration'
+  get '/user_error', to: 'users#user_error'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

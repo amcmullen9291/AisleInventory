@@ -1,6 +1,3 @@
-require 'sidekiq/web'
-mount Sidekiq::Web => '/sidekiq'
-
 Rails.application.routes.draw do
   root to: 'users#welcome'
   resources :sessions
@@ -27,9 +24,8 @@ Rails.application.routes.draw do
   get '/search', to: 'cards#index' 
   get '/refresh', to: 'users#refresh'
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
-  get '/auth/google'
+  get '/auth/google_oauth2'
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html', to
-
-end
+  end

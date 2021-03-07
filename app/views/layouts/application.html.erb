@@ -64,7 +64,8 @@
       </li>
           <%= link_to '<button type="button">Reset Users</button>'.html_safe, refresh_path %><br>
           <br>
-          <%=link_to '/auth/google' do%>
+          <%=link_to "Sign In With Google.", '/auth/google_oauth2'%>
+          <%=button_to '/auth/google_oauth2' do%>
             <%=link_to button_tag image_tag('blog-see-01')%><br>
             <%end%>
           <%= link_to '<button type="button">Add User</button>'.html_safe, registration_path %> <br>

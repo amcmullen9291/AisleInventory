@@ -29,10 +29,8 @@ gem 'omniauth'
 gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'pry'
 gem 'securerandom', '~> 0.1.0'
-gem 'omniauth-google'
-gem 'seed_dump', '~> 3.3', '>= 3.3.1'
-gem 'sidekiq', '~> 6.1', '>= 6.1.3'
-gem 'devise', '~> 4.7', '>= 4.7.3'
+gem 'omniauth-google-oauth2', '~> 0.8.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

@@ -30,6 +30,7 @@ gem 'dotenv-rails', '~> 2.7', '>= 2.7.6'
 gem 'pry'
 gem 'securerandom', '~> 0.1.0'
 gem 'omniauth-google'
+gem 'seed_dump', '~> 3.3', '>= 3.3.1'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

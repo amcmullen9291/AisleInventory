@@ -5,6 +5,9 @@
     <%= form.label :search, "Enter Entire SKU:" %>
     <%= form.text_field :search %>
     <%= form.submit "Find!"%>
+    <% if :search %>
+    <%= link_to "return to index", cards_path%> 
+    <%end%> 
     <%end%>
   <br>
   <h2>Current Inventory</h2>

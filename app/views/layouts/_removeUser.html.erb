@@ -1,0 +1,9 @@
+<%= form_tag do |f| %>
+    <%= label_tag :employeeInit %><br>
+    Enter Employee Initials. <%= text_field_tag :employeeInit %>
+    <br>
+    Enter Access ID <%= text_field_tag :password %> <br>
+    <h3 class= "warning"><u>Warning!:</u></h3><small>THIS ACTION IS ir·re·vers·i·ble.</small>
+<br>
+    <button type="submit">Remove User</button>
+<%end%>

@@ -303,4 +303,8 @@
 }
 
 .uppercase { text-transform: uppercase; }
+
+.warning {
+  color: red;
+}
   © 2021 GitHub, Inc.

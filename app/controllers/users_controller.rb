@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
-before_action :owner_rights, only:[:refresh ]
+before_action :owner_rights, only:[:refresh, :removeUser]
 
     def welcome 
         case 
@@ -63,6 +63,23 @@ before_action :owner_rights, only:[:refresh ]
         redirect_to root_path, flash.notice = "Account has been reset! Register Email."
    end
 
+   def removeUser 
+   end 
+
+   def remove_user 
+    @user = User.find_by(:employeeInit => params[employeeInit])
+    raise "correct routing"
+    binding.pry
+   end 
+
+   def destroy
+    raise "wrong route"
+    binding.pry 
+    @user.destroy 
+    redirect_to root_path
+    flash.notice = "Users Updated"
+   end 
+
    private 
 
    def set_user
@@ -87,6 +104,6 @@ before_action :owner_rights, only:[:refresh ]
     end
 
     def owner_rights 
-        authorize && User.first
+         authorize && User.first
     end        
 end

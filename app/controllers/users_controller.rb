@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy]
+before_action :set_user, only: [:show, :edit, :update]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
 before_action :owner_rights, only:[:refresh, :removeUser]
 
@@ -64,12 +64,7 @@ before_action :owner_rights, only:[:refresh, :removeUser]
    end
 
    def removeUser 
-   end 
-
-   def remove_user 
-    @user = User.find_by(:employeeInit => params[employeeInit])
-    raise "correct routing"
-    binding.pry
+    flash.notice = "WARNING"
    end 
 
    def destroy
@@ -87,7 +82,7 @@ before_action :owner_rights, only:[:refresh, :removeUser]
    end
 
    def user_params 
-       params.require(:user).permit(:password, :password_confirmation, :store_id, :notes, :employeeInit, :password_digest, :telephone, :uid, :uname, :uemail, :email)
+       params.require(:user).permit(:password, :password_confirmation, :store_id, :notes, :employeeInit, :password_digest, :telephone, :uid, :uname, :uemail, :email, :admin_Init)
    end     
 
    def confirm_email

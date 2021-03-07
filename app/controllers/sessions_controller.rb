@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to cards_path
     else
-      user = User.find_or_create_by(:email => params[:email])
+      user = User.find_or_create_by(:store_id => params[:store_id])
       if user && user.authenticate(params[:password])
         session[:user_id] = user.id
         redirect_to cards_path

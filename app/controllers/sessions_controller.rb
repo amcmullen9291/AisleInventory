@@ -4,6 +4,11 @@ class SessionsController < ApplicationController
 
   
   def new 
+    if current_user 
+      flash.notice = "you are already logged in"
+      redirect_to '/users/user_error'
+    else 
+    end 
   end 
 
   def create
@@ -11,11 +16,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(:employeeInit => params[:employeeInit])
       if @user && @user.authenticate(params[:password])
         @session[:user_id] = @user.id
-        flash.now[:notice] = "Signed in as #{@user.employeeInit.upcase}"
+        flash.notice = "Signed in as #{@user.employeeInit.upcase}"
         redirect_to cards_path
       else
-    flash.notice = "Enter AccessID and StoreID."
-    render :new
+      flash.notice = "Enter AccessID and StoreID."
+      render :new
     end
   end
 

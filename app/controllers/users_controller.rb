@@ -10,7 +10,6 @@ before_action :owner_rights, only:[:refresh ]
         else 
             redirect_to new_user_path
         end
-        flash.notice = "Aisle Inventory - 2021  ©"
    end 
 
    def new 
@@ -54,6 +53,9 @@ before_action :owner_rights, only:[:refresh ]
             redirect_to root_path
              flash.notice = "you are not authorized to add accts."
         end 
+    end 
+
+    def user_error 
     end 
 
    def refresh 

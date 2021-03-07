@@ -1,5 +1,4 @@
 class NotesController < ApplicationController
-    skip_before_action :authorize
     before_action :set_user, only: [:new]
 
     def new 

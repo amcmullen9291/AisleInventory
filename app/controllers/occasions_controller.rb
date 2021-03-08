@@ -10,7 +10,7 @@ class OccasionsController < ApplicationController
     end 
 
     def create 
-        @occasion = Occasion.new(occasion_params)
+        @occasion = Occasion.new(occasion_params)    
         if @occasion.save 
             redirect_to new_occasion_path, notice: "#{@occasion.name_of} Added" 
         else 

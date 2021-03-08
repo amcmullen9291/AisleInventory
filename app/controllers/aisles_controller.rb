@@ -6,7 +6,9 @@ class AislesController < ApplicationController
     end 
 
     def create 
-        @aisle = Aisle.new(aisle_params) 
+        @aisle = Aisle.new(aisle_params)
+        params[:aisle][:occasion] = @aisle.build_occasion(:name_of)
+     
         if @aisle.save 
             redirect_to root_path, notice: "Aisle #{@aisle.aisle_number} added"
         else 

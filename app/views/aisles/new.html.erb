@@ -1,11 +1,1 @@
-<% render 'errors' %>
-<div class= "whiteboard">
-<center><h2>update</h2></center>
-    <center><%= form_with model: @aisle do |f| %>
-    <p>Add Aisle<br></p>
-    <small> only enter aisle number</small><br>
-    <%= f.text_field :aisle_number%>
-    <%= f.submit "Done"%>
- <%end%>
- </center>
-</div>
+<%= render '/layouts/add_aisles', locals: {aisle: @aisle} %>

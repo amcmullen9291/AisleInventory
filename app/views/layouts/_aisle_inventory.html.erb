@@ -1,0 +1,9 @@
+<div class= "details">
+<h2>Choose Aisle: </h2><br>
+<hr>
+<div class= "listings">
+<%@aisles.each do |aisle| %>
+    <%=link_to "Aisle ##{aisle.aisle_number}", aisle_path(aisle) %> <br>
+    <%end%>
+    </div>
+</div>

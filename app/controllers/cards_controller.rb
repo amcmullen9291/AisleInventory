@@ -1,5 +1,5 @@
 class CardsController < ApplicationController
-    before_action :set_card, only: [:show, :edit, :update, :destroy]
+    before_action :set_card, only: [:show, :edit, :update, :destroy, :manufacturer ]
     after_action :update_notice, only: [:create, :update, :destroy ]
     def new 
         @card = Card.new
@@ -27,7 +27,8 @@ class CardsController < ApplicationController
         end
     end 
 
-    def show 
+    def show
+        @manufacturer = Manufacturere.find("#{@card.manufacturer_id}")
     end 
 
     def destroy
@@ -51,4 +52,5 @@ class CardsController < ApplicationController
 
     def update_notice
     end
+    
 end

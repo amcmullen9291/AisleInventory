@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :interactions
+  resources :interactions, only [:new, :show, :index, :update]
   root to: 'users#welcome'
   resources :sessions
   resources :cards 
@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :users do
     member do
       get :confirm_email
-      post :confirm_email
     end  
   end
 

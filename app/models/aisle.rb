@@ -6,4 +6,6 @@ class Aisle < ApplicationRecord
     validates_presence_of :aisle_number
     validates_uniqueness_of :aisle_number, :message => "Already Entered"
     validates :aisle_number, numericality: true
+
+
 end

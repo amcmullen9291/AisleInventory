@@ -1,8 +1,12 @@
 class AislesController < ApplicationController
-     before_action :set_aisle, only: [ :show, :edit, :destroy, :update ]
+     before_action :set_aisle, only: [ :show, :edit, :destroy, :update, :occasions ]
 
     def new 
         @aisle = Aisle.new
+    end 
+    
+    def index 
+        @aisles = Aisle.all 
     end 
 
     def create 
@@ -40,4 +44,11 @@ class AislesController < ApplicationController
         @aisle = Aisle.find(params[:id])
     end 
 
+    def occasions_name
+        card = Card.where(:aisle_id => params[:id]).select([:occasion_id])
+        card.each do |number| 
+            occasion = Occasion.find("#{number.occasion_id}") 
+            @named = occasion.name_of
+        end
+    end 
 end

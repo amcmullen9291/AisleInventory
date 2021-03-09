@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_090011) do
+ActiveRecord::Schema.define(version: 2021_03_09_100149) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -70,6 +70,14 @@ ActiveRecord::Schema.define(version: 2021_03_07_090011) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["aisle_id"], name: "index_cards_on_aisle_id"
     t.index ["occasion_id"], name: "index_cards_on_occasion_id"
+  end
+
+  create_table "interactions", force: :cascade do |t|
+    t.string "employeeInit"
+    t.string "content"
+    t.string "employee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "manufactureres", force: :cascade do |t|

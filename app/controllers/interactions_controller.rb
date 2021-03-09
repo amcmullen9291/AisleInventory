@@ -6,7 +6,7 @@ before_action :set_interaction, except: [:new]
 
     def index
         @user = User.find(:id)
-        @interaction = Interaction.where(employeeInit: "@user.employeeInit") #needs more
+        @interaction = Interaction.find_by(:employeeInit => "#{@user.employeeInit}") #needs more
     end
 
     def show

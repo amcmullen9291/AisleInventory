@@ -1,16 +1,15 @@
 Rails.application.routes.draw do
-  resources :interactions, only [:new, :show, :index, :update]
   root to: 'users#welcome'
   resources :sessions
   resources :cards 
   resources :occasions, except: [:show]
   resources :aisles
-  resources :occasions
 
   resources :manufactureres
   resources :users do
     member do
       get :confirm_email
+      resources :interactions, only: [:new, :show, :index, :update]
     end  
   end
 

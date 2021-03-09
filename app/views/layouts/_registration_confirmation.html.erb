@@ -1,5 +1,5 @@
-<% form_with(model: @interaction) do |f|  %>
-<%= f.text_area :content, value:    
+<% form_tag do |form|%>
+<%= form.text_area :content, value:    
 "The following was sent to your account via google mail.<br>
 <p>Hi <%= @user.email %>, </p>
 
@@ -7,10 +7,8 @@
 
 <p># # # # # #<%= confirm_email_user_url(@user.confirm_token) %># # # # # # # </p>
 
-<p>Aisle Inventory." </p>
-<%= f.hidden_field :employeeInit , size: "3" %>
-<%= f.hidden_field :employee_id %>
-<br>
-<%=f.submit, "Contune"$> 
+<p>Aisle Inventory.</p>%>
+<%= form.hidden_field :employeeInit, value: "#{@user.employeeInit" %>
+<%= form.hidden_field :employee_id, value: "#{@user.id}"%><br>
+<%=form.submit%> 
 <%end%>
-</div>

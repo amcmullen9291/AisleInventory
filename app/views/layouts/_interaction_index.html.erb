@@ -1,0 +1,6 @@
+<% @interaction.each do |f| %>
+    <ol>
+    <li><%= f.text_field :content %></li>
+    <li><%=f.text_field :created_at %></li>
+    </ol>
+    <%end%>

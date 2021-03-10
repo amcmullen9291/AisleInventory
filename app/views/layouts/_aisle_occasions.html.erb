@@ -3,6 +3,21 @@
 Aisle Number: <%= @aisle.aisle_number%>
 <h4> Occasions: </h4>
 <hr>
-<%= @named %>
-<%= @aisle.occasions.name_ofS %>
-    </div>
+<% @occasions.each do |occasion| %>
+    <center>
+    <ul >
+   <li><large><u><%= occasion.name_of %></u></large></li><br>
+   <% if @manufactures.each do |m| %>
+    <ol>
+    <li><%= m.name %></li>
+    </ol>
+    <%end%>
+
+    <ol> 
+   </ul>
+   </center> 
+    <%end%><br>
+    <hr>
+    <h4> Manufacturers: </h4>
+
+</div>

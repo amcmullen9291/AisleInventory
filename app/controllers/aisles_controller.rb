@@ -24,6 +24,9 @@ class AislesController < ApplicationController
     end 
 
     def show 
+        @occasions = @aisle.occasions
+        @manufactures = @occasion.manufacturer
+        
     end 
 
     def update

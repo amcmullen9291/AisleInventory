@@ -22,6 +22,7 @@ before_action :set_interaction, except: [:new]
 
     def error 
         flash.notice = "Wrong Location"
+        redirect_to notes_error_path
     end 
 
     private 

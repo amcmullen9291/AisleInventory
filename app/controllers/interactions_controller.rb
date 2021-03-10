@@ -4,25 +4,29 @@ before_action :set_interaction, except: [:new]
         @interaction = Interaction.new 
     end 
 
-    def index
-        @user = User.find(:id)
-        @interaction = Interaction.find_by(:employeeInit => "#{@user.employeeInit}") #needs more
+    def index   
+        @@notes = Note.find_by(:employeeInit => "#{@user.employeeInit}") #needs more
     end
 
     def show
     end
 
     def create 
+        @@notes
         @interaction = Interaction.new(interaction_params)
         if @interaction.save
-
+            @@notes.push.interaction
             redirect_to interaction_path(@interaction)
         end
     end 
 
+    def error 
+        flash.notice = "Wrong Location"
+    end 
+
     private 
     def set_interaction
-        @user = User.fine(params[:id])
+        @user = User.find(params[:id])
     end 
 
     def interaction_params

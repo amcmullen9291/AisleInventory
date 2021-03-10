@@ -1,6 +1,14 @@
-<% @interaction.each do |f| %>
-    <ol>
-    <li><%= f.text_field :content %></li>
-    <li><%=f.text_field :created_at %></li>
+   <div class= "details">
+<p>Notes Entered By <br>
+<h5><u><%="#{(@user.employeeInit).upcase}"%></u></h5></p>
+<hr>
+<%= @@notes.each do |notes|%>
+   <ol>
+    <li><%= notes.created_at.strftime("%A, %B %d %Y at %I:%M %P") %></li>
+    <li><%= notes.content %></li>
+
     </ol>
-    <%end%>
+    <hr>
+<%end%>
+    <%= link_to "back", cards_path %>
+</div>

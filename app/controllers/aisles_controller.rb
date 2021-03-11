@@ -25,7 +25,7 @@ class AislesController < ApplicationController
 
     def show 
         @occasions = @aisle.occasions
-        @manufactures = @occasion.manufacturer
+        @man = @aisle.cards
         
     end 
 

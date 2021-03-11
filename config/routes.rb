@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  constraints(format: 'html') do
   root to: 'users#welcome'
   resources :sessions
   resources :cards 
@@ -28,4 +29,5 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html', to
+end
   end

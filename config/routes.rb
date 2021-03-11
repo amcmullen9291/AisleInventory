@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  constraints(format: 'html') do
   root to: 'users#welcome'
+
   resources :sessions
   resources :cards 
   resources :occasions, except: [:show]
@@ -11,9 +11,8 @@ Rails.application.routes.draw do
     member do
       get :confirm_email
       resources :interactions, only: [:new, :show, :index, :update]
-    end  
   end
-
+end 
   resources :notes 
 
   get "/signout" => "sessions#destroy", :as => :signout
@@ -29,5 +28,7 @@ Rails.application.routes.draw do
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html', to
-end
+
+    match "/404", :to => "application#error_page", :via => :all
+    match "/500", :to => "application#error_page", :via => :all
   end

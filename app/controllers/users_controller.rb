@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    
 before_action :set_user, only: [:show, :edit, :update, :destroy]
 skip_before_action :authorize, only: [ :welcome, :new, :create ]
 before_action :owner_rights, only:[:refresh, :registration]
@@ -60,7 +61,8 @@ before_action :owner_rights, only:[:refresh, :registration]
 
    def refresh 
         User.destroy_all
-        redirect_to root_path, flash.notice = "Account has been reset! Register Email."
+        redirect_to root_path 
+        flash.notice = "Account has been reset! Register Email."
    end
 
    def removeUser 

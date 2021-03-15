@@ -1,21 +1,19 @@
 class InteractionsController < ApplicationController
-before_action :set_interaction, except: [:new]
+before_action :set_interaction, only: [ :show ]
     def new 
         @interaction = Interaction.new 
     end 
 
     def index   
-        @notes = Note.where(:employeeInit => @user.id) #needs more
+        @interaction = Interaction.where(:employeeInit => @user.employeeInit) #needs more
     end
 
     def show
     end
 
     def create 
-        @@notes
         @interaction = Interaction.new(interaction_params)
         if @interaction.save
-            @@notes.push.interaction
             redirect_to interaction_path(@interaction)
         end
     end 
@@ -31,6 +29,6 @@ before_action :set_interaction, except: [:new]
     end 
 
     def interaction_params
-        params.require(:interaction).permit(:employeeInit, :content, :user_id)
+        params.require(:interaction).permit(:employeeInit, :content, :id)
     end
 end

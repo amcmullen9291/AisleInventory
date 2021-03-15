@@ -29,6 +29,7 @@ class CardsController < ApplicationController
 
     def show
         @manufacturer = Manufacturere.find("#{@card.manufacturer_id}")
+        
     end 
 
     def destroy
@@ -38,7 +39,8 @@ class CardsController < ApplicationController
 
     def index 
         @cards = Card.search(params[:search])
-         flash.notice = "#{@cards.count} items returned"
+        @card = Card.all
+         flash.notice = "#{Card.sum(:in_stock)} items returned"
     end
 
     private 

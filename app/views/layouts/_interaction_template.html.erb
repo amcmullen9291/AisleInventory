@@ -2,13 +2,12 @@
 <div class= "paper">
 <section id= "instructions">
 <small><center> Interactions </center></small>
-<small><em> PLEASE NOTE:</em> Notes are not responded to. Interactions will receive a response.</small>
+<small><em> PLEASE NOTE:</em> Notes are <u>not responded to.</u> Interactions will receive a reply .</small>
 </section>
 <center>
-
     <p class= "endnotes">
     <%=form_with model: @interaction do |f|%>
-        <%= f.text_area :content, size: "60x12"%><br>
+        <%= f.text_area :content, size: "55x8"%><br>
         <div class= "initials">
         <p class= "uppercase">
         <small>submitted by, <%= f.text_field :employeeInit, size: "3", value: "#{@user.employeeInit}", readonly: true%></small>

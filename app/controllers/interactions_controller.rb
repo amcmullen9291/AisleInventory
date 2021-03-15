@@ -12,9 +12,13 @@ before_action :set_interaction, only: [ :show ]
     end
 
     def create 
+        @user = User.find_by(params[:id])
         @interaction = Interaction.new(interaction_params)
         if @interaction.save
-            redirect_to interaction_path(@interaction)
+            raise "right path"
+            redirect_to interactions_path
+        else
+            render :new
         end
     end 
 
@@ -29,6 +33,6 @@ before_action :set_interaction, only: [ :show ]
     end 
 
     def interaction_params
-        params.require(:interaction).permit(:employeeInit, :content, :id)
+        params.require(:interaction).permit(:employeeInit, :content, :id, :user_id)
     end
 end

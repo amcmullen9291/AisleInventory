@@ -28,7 +28,7 @@ end
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
   post '/users/:id', to: 'users#show'
-  post '/users/:id/interactions', to: 'interactions#create'
+  post '/users/:id/interactions/new', to: 'interactions#create'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html', to
 
     match "/404", :to => "application#error_page", :via => :all

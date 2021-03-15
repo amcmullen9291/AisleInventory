@@ -3,9 +3,8 @@
 <h5><u><%="#{(@user.employeeInit).upcase}"%></u></h5></p>
 <hr>
 <% @interaction.each do |interaction| %>
-   <ol>
-    <li><%= interaction.created_at.strftime("%A, %B %d %Y at %I:%M %P") %></li>
-    <li><%= interaction.content %></li>
+    <%= interaction.created_at.strftime("%A, %B %d %Y at %I:%M %P") %>
+    <%= interaction.content %>
 
     </ol>
     <hr>

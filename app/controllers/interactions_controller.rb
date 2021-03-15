@@ -15,7 +15,6 @@ before_action :set_interaction, only: [ :show ]
         @user = User.find_by(params[:id])
         @interaction = Interaction.new(interaction_params)
         if @interaction.save
-            raise "right path"
             redirect_to interactions_path
         else
             render :new

@@ -1,11 +1,11 @@
    <div class= "details">
-<p>Notes Entered By <br>
-<h5><u><%="#{(@user.employeeInit).upcase}"%></u></h5></p>
+<center><p>Interactions Entered By <br>
+<h5><u><%="#{(@user.employeeInit).upcase}"%></u></h5></p></center>
 <hr>
 <% @interaction.each do |interaction| %>
-    <%= interaction.created_at.strftime("%A, %B %d %Y at %I:%M %P") %>
-    <%= interaction.content %>
-
+    <%= interaction.created_at.strftime("%A, %B %d %Y at %I:%M %P") %> <br>
+    <%= interaction.content %><br><hr>
+<br>
     </ol>
     <hr>
 <%end%>

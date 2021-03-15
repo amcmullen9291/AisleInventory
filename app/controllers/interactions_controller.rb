@@ -5,7 +5,7 @@ before_action :set_interaction, except: [:new]
     end 
 
     def index   
-        @@notes = Note.find_by(:employeeInit => "#{@user.employeeInit}") #needs more
+        @notes = Note.where(:employeeInit => @user.id) #needs more
     end
 
     def show

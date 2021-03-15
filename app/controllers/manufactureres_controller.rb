@@ -1,5 +1,5 @@
 class ManufactureresController < ApplicationController
-    before_action :set_manufacturer, only: [ :show, :edit, :destroy, :update ]
+    before_action :set_manufacturere, only: [ :show, :edit, :destroy, :update ]
 
     def new 
         @manufacturere = Manufacturere.new

@@ -27,6 +27,7 @@ end
   get '/auth/google_oauth2'
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
+  post '/users/:id', to: 'users#show'
     # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html', to
 
     match "/404", :to => "application#error_page", :via => :all

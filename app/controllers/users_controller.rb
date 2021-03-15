@@ -24,7 +24,7 @@ before_action :owner_rights, only:[:refresh, :registration]
                 UserMailer.registration_confirmation(@user).deliver_now
             end               
             session[:user_id] = @user.id
-            redirect_to new_interation_path(@user), :notice => "Welcome"
+            redirect_to new_interaction_path(@user), :notice => "Welcome"
         else 
             redirect_to new_user_path
         end

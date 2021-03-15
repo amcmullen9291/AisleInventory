@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :cards 
   resources :occasions, except: [:show]
-  resources :aisles
+  resources :aisles, except: [ :show ]
 
   resources :manufactureres
   resources :users do

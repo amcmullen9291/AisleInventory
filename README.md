@@ -4,3 +4,6 @@ Because this app  can be used to keep a record of a business's inventory, I opte
 
 A Gmail account with two step verification and an Gmail provided APP password may be required so that Gmail doesn't consider app 'status reports' to be spam.
 
+Google Authenticate is working on  http://127.0.0.1:3000
+
+- My commits got out of sync at the end of development; I have the finished repo in this file but, to view the entie history of commits, please visit https://github.com/amcmullen9291/Aisles.git .

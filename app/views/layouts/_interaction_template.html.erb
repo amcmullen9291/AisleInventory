@@ -1,0 +1,21 @@
+<div class= "whiteboard">
+<div class= "paper">
+<section id= "instructions">
+<small><center> Interactions </center></small>
+<small><em> PLEASE NOTE:</em> Notes are not responded to. Interactions will receive a response.</small>
+</section>
+<center>
+
+    <p class= "endnotes">
+    <%=form_with model: @interaction do |f|%>
+        <%= f.text_area :content, size: "60x12"%><br>
+        <div class= "initials">
+        <p class= "uppercase">
+        <small>submitted by, <%= f.text_field :employeeInit, size: "3", value: "#{@user.employeeInit}", readonly: true%></small>
+        </p>
+        </div>
+        <%= f.submit "Thank You"%>
+        <%end%>
+        </p></center>
+</div>
+</div>

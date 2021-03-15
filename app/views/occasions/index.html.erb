@@ -1,13 +1,1 @@
-<div class= "whiteboard">
-<ul class= "occasion-list">
-<center><% @occasion.each do |occasion| %>
-    <ol>
-    <%= link_to "Remove #{occasion.name_of}", occasion, :confirm => 'Are you sure?',
-                                     :method => :delete %>
-    <li><%= link_to "Re-name #{occasion.name_of} section", edit_occasion_path(occasion) %></li>
-    </ol>
-    <%end%>
-</ul>
-<%= link_to "back", cards_path %>
-</center>
-</div>
+<%= render partial: '/layouts/occasion_index', locals: {occasion: @occasion}

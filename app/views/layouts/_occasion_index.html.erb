@@ -1,0 +1,14 @@
+<div class= "whiteboard">
+<ul class= "occasion-list">
+<center><% @occasion.each do |occasion| %>
+    <ol>
+    <%= link_to "Remove #{occasion.name_of}", occasion, :confirm => 'Are you sure?',
+                                     :method => :delete %> <br>
+    <li><%= link_to "Re-name #{occasion.name_of} section", edit_occasion_path(occasion) %></li>
+    <hr>
+    </ol>
+    <%end%>
+</ul>
+<%= link_to "back", cards_path %>
+</center>
+</div>

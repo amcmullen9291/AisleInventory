@@ -64,10 +64,11 @@
       <li class="nav-add"><b><u>Aisle Access</u></b>
       </li>
           <%= link_to '<button type="button">Reset Users</button>'.html_safe, refresh_path %><br>
-            <%=button_to '/auth/google_oauth2' do %>
+          <br>  
+          <%=link_to "Sign-in With Google Auth", '/auth/google_oauth2' %>
             <%=link_to button_tag image_tag('blog-see-01')%><br>
-            <%end%>
-          <%= link_to '<button type="button">Add User</button>'.html_safe, registration_path %> <br>
+
+            <%= link_to '<button type="button">Add User</button>'.html_safe, registration_path %> <br>
           <small><%=link_to "login", login_path %></small><br>
           <%= link_to "End Sesson", new_note_path %>
           <li> 

@@ -25,6 +25,7 @@ end
   get '/refresh', to: 'users#refresh'
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   get '/auth/google_oauth2'
+  post '/auth/google_oauth2/callback', to: 'sessions#create'
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
   post '/users/:id', to: 'users#show'

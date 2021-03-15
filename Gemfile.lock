@@ -262,7 +262,6 @@ DEPENDENCIES
   faker (~> 2.16)
   jbuilder (~> 2.7)
   listen (~> 3.3)
-  omniauth
   omniauth-google-oauth2 (~> 0.8.1)
   omniauth-rails_csrf_protection (~> 1.0)
   pry

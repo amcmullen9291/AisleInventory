@@ -25,7 +25,8 @@ end
   get '/refresh', to: 'users#refresh'
   get '/auth/google_oauth2'
   post '/auth/google_oauth2/callback', to: 'sessions#create'
-  
+  get '/auth/google_oauth2/callback', to: 'sessions#create'
+
   get '/registration', to: 'users#registration'
   get '/user_error', to: 'users#user_error'
   post '/users/:id', to: 'users#show'

@@ -65,7 +65,7 @@
       </li>
           <%= link_to '<button type="button">Reset Users</button>'.html_safe, refresh_path %><br>
           <br>  
-          <%= button_to "Google Auth", auth_google_oauth2_path %>
+          <%= button_to "Google Auth", auth_google_oauth2_path, :class => "profile-delete"%>
 
             <%=link_to button_tag image_tag('blog-see-01')%><br>
 

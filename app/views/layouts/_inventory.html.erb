@@ -15,6 +15,7 @@
       <td></td>
       <td>Lastest Update</td>
       <td></td>
+      <td> quantity </td>
       </tr>
     </thead>
     <tbody>
@@ -24,6 +25,8 @@
     <td></td>
     <td></td>
     <td><%= card.updated_at.strftime("%a, %B %d, %Y") %></td>
+    <td>||</td>
+    <td><%= card.in_stock %></td>
 
     </tr>
     <%end%>

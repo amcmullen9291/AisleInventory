@@ -48,7 +48,7 @@ before_action :owner_rights, only:[:refresh, :registration]
    end 
 
    def registration
-        if session[:user_id] == "1"
+        if @user = User.first
         @user = User.new
         else
             redirect_to root_path
@@ -100,6 +100,6 @@ before_action :owner_rights, only:[:refresh, :registration]
     end
 
     def owner_rights 
-         authorize && User.first
+         User.first 
     end        
 end

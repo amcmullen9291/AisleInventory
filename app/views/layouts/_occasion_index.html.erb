@@ -2,8 +2,8 @@
 <ul class= "occasion-list">
 <center><% @occasion.each do |occasion| %>
     <ol>
-    <%= link_to "Remove #{occasion.name_of}", occasion, :confirm => 'Are you sure?',
-                                     :method => :delete %> <br>
+    <li><%= button_to "delete #{occasion.name_of}", {:controller => :occasions,
+    :action => 'destroy', :id => occasion.id }, :method => :delete %></li>
     <li><%= link_to "Re-name #{occasion.name_of} section", edit_occasion_path(occasion) %></li>
     <hr>
     </ol>

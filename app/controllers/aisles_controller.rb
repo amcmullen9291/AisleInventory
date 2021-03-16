@@ -6,7 +6,9 @@ class AislesController < ApplicationController
     end 
     
     def index 
-        @aisles = Aisle.all 
+        @aisles = Aisle.all
+        @manufacture = Card.pluck(:manufacturere_id)
+        
     end 
 
     def create 

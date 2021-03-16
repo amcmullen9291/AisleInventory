@@ -1,14 +1,1 @@
-<div class= "whiteboard">
-<ul class= "occasion-list">
-<center><% @manufacturere.each do |manufacturere| %>
-    <ol><%= link_to "Remove #{manufacturere.name}", manufacturere_path(manufacturere),
-    method: :delete,
-    data: { confirm: "Permanently Delete #{manufacturere.name}?" } %></li><br>
-    <li><%= link_to "Edit Title of  #{manufacturere.name}", edit_manufacturere_path(manufacturere) %></li>
-    </ol> <br>
-    <br>
-    <%end%>
-</ul>
-<%= link_to "back", root_path %>
-</center>
-</div>
+<%= render partial:  '/layouts/manufacturer_index', locals: {manufacturer: @manufacturere} %>

@@ -1,10 +1,12 @@
 <div class= "whiteboard">
 <ul class= "occasion-list">
-<center><% @manufacturere.each do |manufacturere| %>
+<center><% @manufactureres.each do |manufacturere| %>
     <li><%= button_to "delete #{manufacturere.name}", {:controller => :manufactureres,
     :action => 'destroy', :id => manufacturere.id }, :method => :delete %></li>
 <br>
     <li><%= link_to "Edit listing:  #{manufacturere.name}", edit_manufacturere_path(manufacturere) %></li>            
+    <hr>
+    <%= @cards %>
     <hr>
     </ol> <br>
     <br>

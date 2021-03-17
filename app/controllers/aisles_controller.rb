@@ -26,7 +26,7 @@ class AislesController < ApplicationController
     end 
 
     def show 
-        @occasion = @aisle.cards.pluck(:description)
+        @occasion = @aisle.occasions.pluck(:name_of, :in_stock)
     end 
 
     def update

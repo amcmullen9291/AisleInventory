@@ -3,8 +3,11 @@
 Aisle Number: <%= @aisle.aisle_number %>
 <h4> Occasions: [total in stock] </h4>
 <hr>
-<%= @aisle.occasions.pluck(:name_of)%> <br>
-<%= @aisle.cards.pluck(:in_stock) %>
+<% x=0 %>
+<% while x < @occasion.length do %>
+<%=@occasion[x][0]%> [ <%= @occasion[x][1] %> items] <br>
+<% x+=1 %>
+<%end%>
 <br>
     <hr>
 </div>

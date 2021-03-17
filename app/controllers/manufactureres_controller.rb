@@ -30,7 +30,7 @@ class ManufactureresController < ApplicationController
 
     def update 
         if @manufacturere.update(manufacturere_params)
-            redirect_to cards_path, notice: "#{manufacturere.name} Updated"
+            redirect_to cards_path, notice: "#{@manufacturere.name} Updated"
         else
             render :edit, notice: "record not updated"
         end

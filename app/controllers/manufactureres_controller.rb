@@ -16,7 +16,6 @@ class ManufactureresController < ApplicationController
 
     def index 
         @manufactureres = Manufacturere.all
-        @cards   
     end 
 
     def edit

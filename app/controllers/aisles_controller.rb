@@ -26,9 +26,7 @@ class AislesController < ApplicationController
     end 
 
     def show 
-        @occasions = @aisle.occasions
-        @man = @aisle.cards
-        
+        @occasion = @aisle.cards.pluck(:description)
     end 
 
     def update

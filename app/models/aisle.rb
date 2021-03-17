@@ -7,4 +7,12 @@ class Aisle < ApplicationRecord
     validates_uniqueness_of :aisle_number, :message => "Already Entered"
     validates :aisle_number, numericality: true
 
+
+    def occasion
+        self.occasions.pluck(:name_of)
+    end
+   
+    def total
+        self.occasions.pluck(:in_stock)
+    end
 end

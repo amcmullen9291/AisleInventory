@@ -3,7 +3,13 @@
 <hr>
 <div class= "listings">
 <% @aisles.each do |aisle| %>
+    <%x=0%>
     <%=link_to "Aisle #{aisle.aisle_number}", aisle_path(aisle) %><br>
+        <% aisle.occasion.each do %>
+            <li><%= aisle.occasion[x]%>
+            <% x+=1 %>
+        <%end%>
+        <br>
     <%end%>
     </div>
 </div>

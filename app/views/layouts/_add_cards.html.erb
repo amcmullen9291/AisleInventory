@@ -2,7 +2,7 @@
    <div class= "details">
     <center><%= form_with model: @card do |f| %>
         <center>Select Occasion:</center><br>
-        <%=f.collection_select(:occasion_id, Occasion.order("name_of"), :id, :name_of) %><br>
+        <%=f.collection_select(:occasion_id, @occasions, :id, :name_of) %><br>
         <br>
         Manufacturer:
         <%=f.collection_select(:manufacturer_id, Manufacturere.all, :id, :name, :include_blank => true) %><br>

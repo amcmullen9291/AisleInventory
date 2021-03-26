@@ -8,13 +8,11 @@ class AislesController < ApplicationController
     def index 
         @aisles = Aisle.all
         @manufacture = Card.pluck(:manufacturere_id)
-        
+
     end 
 
     def create 
-        @aisle = Aisle.new(aisle_params)
-        params[:aisle][:occasion] = @aisle.build_occasion(:name_of)
-     
+        @aisle = Aisle.new(aisle_params)             
         if @aisle.save 
             redirect_to root_path, notice: "Aisle #{@aisle.aisle_number} added"
         else 

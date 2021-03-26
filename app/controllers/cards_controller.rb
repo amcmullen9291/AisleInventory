@@ -3,6 +3,7 @@ class CardsController < ApplicationController
     after_action :update_notice, only: [:create, :update, :destroy ]
     def new 
         @card = Card.new
+        @occasions = Occasion.order_by(:name_of)
     end
 
     def create 
